@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+
+    <!-- <script>
+
+        // *문제
+        // =>숫자를 두번 입력하게 만들기
+        // =>입력한 숫자 중 몇번째 입력한 숫자가 더 큰지 비교하기
+
+        let inputNum1 = Number(prompt("첫번째 숫자를 입력해주세요!"));
+        let inputNum2 = Number(prompt("두번째 숫자를 입력해주세요!"));
+        // let text = "문자"
+
+        document.write("첫번째 입력한 숫자는 " + inputNum1 + " 입니다" + "<br>" + "두번째 입력한 숫자는 " + inputNum2 + " 입니다" + "<br>");
+
+        if(inputNum1 > inputNum2){
+            document.write("<h3>" + "첫번째 입력한 숫자가 더 큽니다!" + "</h3>");
+        }else if(inputNum1 < inputNum2){
+            document.write("<h3>" + "두번째 입력한 숫자가 더 큽니다!" + "</h3>");
+        }else if(inputNum1 === inputNum2){
+            document.write("<h3>" + "입력하신 두 숫자가 같습니다!" + "</h3>");
+        }else{
+            
+            // if(typeof(inputNum1) === typeof(text)){
+            //     let inputNum1 = "문자";
+            //     document.write("첫번째 입력한 숫자는 " + "<span>'" + inputNum1 + "'</span>" + " 입니다" + "<br>" + "두번째 입력한 숫자는 " + "<span>'" + inputNum2 + "'</span>" + " 입니다" + "<br>")
+            // }(typeof(inputNum2) === typeof(text)){
+            //     let inputNum2 = "문자";
+            //     document.write("첫번째 입력한 숫자는 " + "<span>'" + inputNum1 + "'</span>" + " 입니다" + "<br>" + "두번째 입력한 숫자는 " + "<span>'" + inputNum2 + "'</span>" + " 입니다" + "<br>")
+            // };
+
+            document.write("<h3>" + "숫자를 입력해주세요!" + "</h3>");
+
+
+
+        };
+
+
+        console.log(typeof(NaN));
+
+    </script> -->
+
+    <script>
+
+        const inputNum_1 = Number(prompt("첫번째 숫자를 입력하세요."));
+        const inputNum_2 = Number(prompt("두번째 숫자를 입력하세요."));
+    
+        
+        document.write("첫번째 입력한 숫자는 " + inputNum_1 + " 입니다" + "<br>" + "두번째 입력한 숫자는 " + inputNum_2 + " 입니다" + "<br>");
+
+        if(inputNum_1 > inputNum_2){
+            document.write("첫번째 입력한 숫자는'" + inputNum_1 + "'이며" + "두번째 입력한 숫자는'" + inputNum_2 + "'입니다. 첫번째 입력한 숫자가 더큽니다.");
+        }else if(inputNum_1 < inputNum_2){
+            document.write("첫번째 입력한 숫자는'" + inputNum_1 + "이며" + "'두번째 입력한 숫자는'" + inputNum_2 + "'입니다. 두번째 입력한 숫자가 더큽니다.");
+    
+        }else if(inputNum_1 === inputNum_2){
+            document.write("첫번째 입력한 숫자는'" + inputNum_1 + "'이며" + "두번째 입력한 숫자는'" + inputNum_2 + "'입니다. 입력한 두수 가 같습니다.");
+        }else{
+            document.write("숫자만 입력해주세요.")
+        };
+        
+    
+        </script>
+
+</head>
+<body>
+    
+</body>
+</html>

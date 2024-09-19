@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: lightgray;
+            text-align: center;
+            align-items: center;
+            display: flex;
+        }
+    </style>
+
+    <script>
+
+        // *문제
+        // =>입력한 숫자가 짝수면 짝수 입니다
+        // =>입력한 숫자가 홀수면 홀수 입니다
+
+        const inputNum = Number(prompt("숫자를 입력해주세요!"));
+        const result = inputNum % 2;
+        
+        if(result === 0){
+            document.write("입력한 숫자는 '" + inputNum + "' 이며" + "<br>" + "짝수 입니다");
+        }else if(result === 1){
+            document.write("입력한 숫자는 '" + inputNum + "' 이며" + "<br>" + "홀수 입니다");
+        }else{
+            document.write("문자를 입력하셨습니다!" + "<br>" + "F5를 눌러 다시 입력해주세요~" + "<br>");
+        };
+
+    </script>
+
+</head>
+<body>
+
+    <a href="http://127.0.0.1:5500/3%EC%9D%BC%EC%B0%A8/%EB%AC%B8%EC%A0%9C2.html">다시 입력하기</a>
+    
+</body>
+</html>

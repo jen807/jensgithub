@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // *조건문
+        // =>특정 조건을 비교하여 원하는 식을 실행시킴
+        // =>조건식은 반드시 boolean 값으로 반환해야됨
+
+        // if(조건식){
+        //     조건식에 만족하면 실행할 내용
+        // }
+        // =>if문은 반드시 조건식이 참일때만 내용이 실행됨
+
+        // *else{}
+        //=>if문의 조건이 거짓일때 실행함
+
+        // *else if(조건2){}
+        // =>if의 조건이 만족 못했을때 실행하는 조건식
+        // =>else if 는 여러개 작성가능
+
+        // *문자로 입력했을때 조건 해결하기
+        
+        const num_1 = 1;
+        const num_2 = '문자';
+
+        if(num_1 > num_2){
+            console.log("첫번째 숫자가 더 큽니다");
+        }else if(num_1 === num_2){
+            console.log("두 숫자가 같습니다");
+        }else if(num_1 < num_2){
+            console.log("두번째 숫자가 더 큽니다")
+        }else{
+            console.log("숫자만 입력해주십시오");
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

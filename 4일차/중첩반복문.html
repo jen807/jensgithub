@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩반복문</title>
+
+    <script>
+
+        // *중첩반복문
+        // =>반복문 안에 반복문 작성
+        // =>부모 반복문이 한번 출력되면 자식 반복문이 전체 순회함
+
+        // for(let i = 0; i < 4; i++){
+        //     document.write(`<h3>${i}</h3>`);
+        //     for(let o = 4; o < 7; o++){
+        //         document.write(o);
+        //     }
+        // }
+
+        // *문제
+        // =>구구단 1단부터 9단까지 전체 출력하기
+
+        // **출력결과**
+        // 1단
+        // 1x1=1
+        // 1x2=2
+        // ...생략
+
+        // 2단
+        // 2x1=2
+        // 2x2=4
+        // ...생략
+
+        // 9단
+
+        for(let a = 1; a<10; a++){
+            document.write(`<h1>${a}단</h1>`)
+            for(let b = 1; b<10; b++){
+                document.write(`<h3>${a}x${b}=${a*b}</h3>`)
+            }
+        }
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

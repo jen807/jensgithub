@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+            transition-duration: 0.3s;
+        }
+        .box{
+            color: salmon;
+        }
+        .icon{
+            width: 50px;
+            height: 50px;
+            background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWEUVbRmG2BxFxk1GJkGaJ9I_JnrHsQhx823CQRnmOCqIEkQ-6w9iCK_y1a5kefPUVUWg&usqp=CAU) no-repeat center / cover;
+            margin-right: 10px;
+        }
+        .icon2{
+            width: 50px;
+            height: 50px;
+            background: url(https://i.namu.wiki/i/p_1IEyQ8rYenO9YgAFp_LHIAW46kn6DXT0VKmZ_jKNijvYth9DieYZuJX_E_H_4GkCER_sVKhMqSyQYoW94JKA.svg) no-repeat center / 80%;
+            margin-right: 10px;
+        }
+
+        .box2{
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .box2:hover a{
+            color: black;
+        }
+
+        .box2 a{
+            color: gray;
+            display: flex;
+            align-items: center;
+        }
+
+
+    </style>
+    <script>
+
+        // var name = "김정현";
+        // var num = 24;
+        // var naver = "http://naver.com";
+        // var youtube = "http://youtube.com";
+
+        // document.write("안녕 내 이름은 " + name + "이야 나이는 " + num + "살이라고 해");
+
+        // document.write("<h2 class='box'>이렇게 적으면 될까?</h2>");
+
+        // document.write( '<div class=box2>' + '<div class=icon></div>' + '<a href=' + youtube + ' target="blank">' + '유튜브 바로가기</a>' + '</div>');
+
+        // document.write( '<div class=box2>' + '<div class=icon2></div>' + '<a href=' + naver + ' target="blank">' + '네이버 바로가기</a>' + '</div>');
+
+        var text = "자바스크립트";
+
+        var a = 3;
+        var b = 7;
+
+        var result = a + b;
+
+        var c = 1;
+        var d = 2;
+        var e = 3;
+        var f = 4;
+        var g = 5;
+        
+
+        document.write('<h' + c + '>' + text + '</h' + c + '>');
+        document.write('<h' + c * 2 + '>' + text + '</h' + c * 2 + '>');
+        document.write('<h' + c * 3 + '>' + text + '</h' + c * 3 + '>');
+        document.write('<h' + c * 4 + '>' + text + '</h' + c * 4 + '>');
+        document.write('<h' + c * 5 + '>' + text + '</h' + c * 5 + '>');
+        document.write('<h' + c * 6 + '>' + text + '</h' + c * 6 + '>');
+        
+        document.write('<h' + c + '>' + text + '</h' + c + '>');
+        document.write('<h' + (c + 1) + '>' + text + '</h' + (c + 1) + '>');
+        document.write('<h' + (c + 2) + '>' + text + '</h' + (c + 2) + '>');
+        document.write('<h' + (c + 3) + '>' + text + '</h' + (c + 3) + '>');
+        document.write('<h' + (c + 4) + '>' + text + '</h' + (c + 4) + '>');
+        document.write('<h' + (c + 5) + '>' + text + '</h' + (c + 5) + '>');
+        
+        document.write('<h' + c + '>' + text + '</h' + c + '>');
+        document.write('<h' + (c + c) + '>' + text + '</h' + (c + c) + '>');
+        document.write('<h' + (c + d) + '>' + text + '</h' + (c + d) + '>');
+        document.write('<h' + (c + e) + '>' + text + '</h' + (c + e) + '>');
+        document.write('<h' + (c + f) + '>' + text + '</h' + (c + f) + '>');
+        document.write('<h' + (c + g) + '>' + text + '</h' + (c + g) + '>');
+
+        document.write('<h1>' + text + '</h1>');
+        document.write('<h2>' + text + '</h2>');
+        document.write('<h3>' + text + '</h3>');
+        document.write('<h4>' + text + '</h4>');
+        document.write('<h5>' + text + '</h5>');
+        document.write('<h6>' + text + '</h6>');
+
+        document.write('a + b =' + (a + b) + '<br>');
+
+        document.write('a + b =' + result + '<br>');
+
+        document.write('a + b =');
+        document.write(a + b);
+
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>
