@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        
+        const i = [3,5,2,0,4,1,6,7,10,9,8];
+
+        const num_1 = prompt("0 이상 10 이하의 숫자를 입력해주세요")
+        const num_2 = prompt("0 이상 10 이하의 숫자를 한번 더 입력해주세요")
+
+        if(typeof(num_1)===typeof(number)){
+
+            document.write(`첫번째 숫자는 ${i[num_1]}입니다. <br> 첫번째 숫자와 두번째 숫자의 합은 ${i[num_1] + i[num_2]}입니다.<br>두번째 숫자는 무엇일까요?`);
+
+            if((i[num_1] + i[num_2]) < 21){
+
+            const num_3 = prompt("두번째 숫자의 값을 입력해주세요!");
+
+            if(num_3===num_2){
+            document.write("정답!")
+            }else{
+            document.write("오답!")
+            };
+
+            }else if((i[num_1] + i[num_2])>= 21){
+
+            document.write("0 이상 10 이하의 숫자를 입력해주세요 <br> F5를 눌러 재시작해주세요!");
+
+            }else{
+            document.write("숫자를 입력해주세요 <br> F5를 눌러 재시작해주세요!");
+            };
+
+        }else{
+            document.write("숫자를 입력해주세요 <br> F5를 눌러 재시작해주세요!");
+        };
+
+        
+        
+        
+
+
+        
+        
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
