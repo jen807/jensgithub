@@ -16,7 +16,7 @@
     alert("첫번째 숫자와 두번째 숫자의 합: " + (arr[firstIndex] + arr[secondIndex]));
 
     let guess = prompt("두번째 숫자는 무엇일까요?");
-    if(guess === arr[secondIndex]){
+    if((guess - arr[secondIndex]) === 0){
         alert("정답!");
     }else{
         alert("오답!");
