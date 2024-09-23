@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box"><div class="box2">1</div></div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+
+    <script>
+        
+        // *Dom Script
+        // =>Document Object model의 약자
+        // =>브라우저에 이쁘게 꾸미기 위한 수단
+
+        // *querySelector("선택자명")
+        // =>html 태그를 선택할때 사용가능하며,
+        // 아이디, 태그, 클래스, 구조, 자식 선택자 등 css 선택자와
+        // 동일하게 선택할 수 있음
+        // =>query 뜻 = 요청
+        // =>같은명의 클래스일 경우 첫번째 엘리먼트만 선택됨
+        
+        // const boxEl_1 = document.querySelector(".box:nth-child(1)");
+        // const boxEl_2 = document.querySelector(".box:nth-child(2)");
+        // const boxEl_3 = document.querySelector(".box:nth-child(3)");
+        // console.log(boxEl_1)
+        // console.log(boxEl_2)
+        // console.log(boxEl_3)
+
+        const boxEls = document.querySelectorAll("선택자");
+        // =>querySelector처럼 선택자를 선택하지만
+        // 같은 이름의 클래스를 한번에 선택할 ㅅ ㅜ잇음
+        // =>선택한 선택자는 배열로 반환
+        console.log(boxEls[2]);
+        console.log(boxEls[1]);
+        console.log(boxEls[0]);
+
+    </script>
+    
+</body>
+</html>

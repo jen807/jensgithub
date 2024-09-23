@@ -113,28 +113,42 @@
         inputusername = prompt("아이디를 입력해주세요");
         inputpassword = prompt("비밀번호를 입력해주세요!");
 
-        inputusername === userInfo.username 
+        let idsame = inputusername === userInfo.username 
+        let pssame = inputpassword === userInfo.password 
+        let answer = "아이디"
 
-        const login = {
-
-            alert: function(){
-            document.write(`${answer}가 틀렸습니다.`);},
-            
-            right: function(){
-            document.write(`로그인 되었습니다!`);}
-        
-        }
-        
-        if(inputusername !== userInfo.username){
-            let answer = "아이디";
-            login.alert();
+        if(userNameInput !== userInfo.username){
+            document.write("아이디가 틀렸습니다")
         }else if(inputpassword !== userInfo.password){
-            let answer = "패스워드";
-        }else if(){
-            let answer = "패스워드";
+            document.write("비밀번호가 틀렸습니다")
         }else{
-            login.right();
-        };
+            alert("로그인이 되었습니다.")
+            document.write(`${id}님 환영합니다!`)
+        }
+
+
+
+        // const login = {
+
+        //     alert: function(){
+        //     document.write(`${answer}가 틀렸습니다.`);},
+            
+        //     right: function(){
+        //     document.write(`로그인 되었습니다!`);}
+        
+        // }
+        
+        // if(inputusername !== userInfo.username){
+        //     login.alert();
+        // }else if(inputpassword !== userInfo.password){
+        //     let answer = "패스워드";
+        //     login.alert();
+        // }else if(idsame === pssame){
+        //     login.right();
+        // }else{
+        //     document.write(`아이디와 패스워드가 틀렸습니다.`);
+        // };
+        
 
     </script>
 </head>

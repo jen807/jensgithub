@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // *리턴
+        // =>반환하다 라는 뜻을 가짐
+        // =>함수 내부에서 작업처리 후 밖에서 사용할 수 있도록 결과 값을 던져주는 역할
+        // =>종료시킬 때도 사용함
+        // =>리턴 뒤 코드는 무조건 종료가 되지만, 줄바꿈하여 사용해야될 땐 소괄호를 이용하여 줄바꿈 사용가능
+
+        // const plus = (a, b) => {
+        //     return (
+        //         a + b
+        //     );
+        // }    
+
+        // =>저 안에 함수가 들어가면 그 함수는 콜백함수이다
+        const plus = (a,b) => a + b;
+        // =>화살표 함수는 반환할 값이 한 줄이라면 중괄호 생략 가능
+
+        const result = plus(5, 10);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

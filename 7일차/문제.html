@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // *문제
+        // =>배열 생성 -> 배열 내부에 객체 4개 생성
+        // =>객체 내부에는 고유값, 아이디, 이메일, 프사
+        // =>배열에 저장된 4명의 유저를 브라우저에 출력하기 (반복문 사용)
+
+        // let userinfo = {
+        //     a = [
+        //     id = "김정현",
+        //     username= "text",
+        //     email= "80chil@naver.com",
+        //     profile= "profile1.jpg"
+        //     ],
+
+        //     b = {
+        //         id: "포이즌박",
+        //         username: "text",
+        //         email: "poison@naver.com",
+        //         profile: "profile2.jpg"
+        //     },
+        //     c = {
+        //         id: "이중인격여사",
+        //         username: "text",
+        //         email: "80chil@naver.com",
+        //         profile: "profile3.jpg"
+        //     },
+        //     d = {
+        //         id: "어뢰독",
+        //         username: "text",
+        //         email: "dog@naver.com",
+        //         profile: "profile4.jpg"
+        //     }
+        //     }
+        
+        // let info = function(){
+        //     document.write(
+        //         `${i}번째 유저 <br>
+        //         아이디 : ${username[i]}<br>
+        //         이메일: ${email[i]}<br>
+        //         프사: ${profile[i]}<br>`
+        //     )
+        // };
+
+        // let userInfo = [
+        // {
+        //     username: "어뢰독",
+        //     email: "1234",
+        //     profile: "pr",
+
+        // },
+
+        // {
+        //     username: "저년닝",
+        //     email: "ddolchoo",
+        //     profile: "pr",
+
+        // },
+
+        // {
+        //     username: "포이즌박",
+        //     email: "posionmushroom",
+        //     profile: "pr",
+        // },
+
+        // {
+        //     username: "마리화나박",
+        //     email: "weed",
+        //     profile: "pr",
+        // },
+
+        // ]
+
+        // const intro = function(){
+        //         document.write(`${i}번째 유저<br>`);
+        //         document.write(`아이디: ${userInfo[i].username}<br>`);
+        //         document.write(`이메일: ${userInfo[i].email}@naver.com<br>`);
+        //         document.write(`프사: ${userInfo[i].profile}${i}.jpg<br>`);
+        //         document.write(`<br>`);
+        // };
+
+        
+
+
+        // for(i = 0; i<4; i++){
+        //     intro();
+        // };
+        
+        const users = [
+            {
+                id: 0,
+                username: "js",
+                email: "js@js.com",
+                avatar:  "js.jpg"
+            },
+            {
+                id: 1,
+                username: "js1",
+                email: "js1@js.com",
+                avatar:  "js1.jpg"
+            },
+            {
+                id: 2,
+                username: "js2",
+                email: "js2@js.com",
+                avatar:  "js2.jpg"
+            },
+            {
+                id: 3,
+                username: "js3",
+                email: "js3@js.com",
+                avatar:  "js3.jpg"
+            },
+            {
+                id: 3,
+                username: "js3",
+                email: "js3@js.com",
+                avatar:  "js3.jpg"
+            },
+            {
+                id: 3,
+                username: "js3",
+                email: "js3@js.com",
+                avatar:  "js3.jpg"
+            },
+        ];
+
+        // document.write(`${users[0].id}번째 유저 <br>`);
+        // document.write(`아이디: ${users[0].username}<br>`);
+        // document.write(`이메일: ${users[0].email}<br>`);
+        // document.write(`프사: ${users[0].avatar}<br>`);
+
+        for(i = 0; i < users.length; i++){
+            document.write(`${i}번째 유저 <br>`);
+            document.write(`아이디: ${users[i].username}<br>`);
+            document.write(`이메일: ${users[i].email}<br>`);
+            document.write(`프사: ${users[i].avatar}<br>`);
+            document.write(`---------------------------<br>`);
+        };
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
