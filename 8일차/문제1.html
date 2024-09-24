@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div>
+    <div class="con"></div> -->
+
+    <script>
+
+        // *문제
+        // =>.con 10개 만들기
+        // =>콘솔로 10개 자식 출력하기
+
+        // const cEl = document.querySelectorAll(`.con`);
+        
+        // for(i = 0; i < cEl.length; i++){
+        //     cEl[i].innerHTML = `<h3>${i + 1}</h3>`;
+        // };
+
+        // body에 a태그를 넣어야함
+        // 그 안에 네이버 바로가기를 넣어야함
+        // a태그에 링크를 연결해야함
+
+        // 필요한 것 -createElement 
+        //         - innertext, innerhtml
+        //         - apend
+
+        const ael = document.createElement(`div`);
+
+        ael.innerHTML = `<a href="https://naver.com">네이버 바로가기</a>`
+        // document.querySelector('body').append(ael);
+        document.body.append(ael);
+        // =>body는 쿼리 셀렉터 없이 선택 가능
+
+        
+
+
+    </script>
+    
+</body>
+</html>
+
+
+<!-- 
+Create
+Read
+Update
+Delete
+
+앱에 필요한 주요 요소
+-->

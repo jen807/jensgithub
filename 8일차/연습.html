@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        .con_wrap{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .con{
+            width: 300px;
+            height: 100px;
+            padding: 10px 30px;
+            border: 1px solid #22222249;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition-duration: 0.5s;
+        }
+
+        .con h3{
+            font-size: 20px;
+            margin-bottom: -10px;
+        }
+
+        .con:hover{
+            background-color: lightgray;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="con_wrap">
+
+    </div>
+
+    <script>
+
+        const info = [
+            {
+                title: "this is title",
+                desc: "퍼가요~♡"
+            },
+            {
+                title: "this is title",
+                desc: "퍼가요~♡"
+            },
+            {
+                title: "this is title",
+                desc: "퍼가요~♡"
+            },
+            {
+                title: "this is title",
+                desc: "퍼가요~♡"
+            },
+            {
+                title: "this is title",
+                desc: "퍼가요~♡"
+            },
+
+
+        ];
+        
+
+        const conWrap = document.querySelector('.con_wrap');
+
+        
+        for(i = 0; i < info.length; i++){
+
+            const titleEl = document.createElement('h3');
+            const pEl = document.createElement('p');
+            const divEl = document.createElement('div');
+            divEl.classList.add('con');
+
+            titleEl.innerText = info[i].title
+            pEl.innerText = info[i].desc
+            divEl.append(titleEl);
+            divEl.append(pEl);
+
+            conWrap.append(divEl);
+            
+            console.log(divEl);
+        };
+
+    </script>
+    
+</body>
+</html>
