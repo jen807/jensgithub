@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parent{
+            width: 300px;
+            height: 300px;
+            background-color: teal;
+        }
+
+        .child{
+            width: 100px;
+            height: 100px;
+            background-color: crimson;
+        }
+
+        .one{
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+
+    <div class="one">
+        •
+    </div>
+
+    <script>
+
+        const parentEl = document.querySelector('.parent');
+        const parentHandler = (e) => {
+            // console.log(e.currentTarget);
+            // =>현재 이벤트가 걸려있는 엘리먼트를 가져옴
+
+            console.log(e.target);
+            // =>실제 클릭한 엘리먼트를 가져옴
+
+        }
+
+        parentEl.addEventListener('click', parentHandler);
+
+        const oneEl = document.querySelector('.one');
+
+        window.addEventListener("mousemove", (e) => {
+            oneEl.style.top = (e.clientY - 20) + "px";
+            oneEl.style.left = (e.clientX - 17) + "px";
+        });
+
+        // *mousemove
+        // =>마우스가 움직일때 적용되는 이벤트
+
+    </script>
+    
+</body>
+</html>

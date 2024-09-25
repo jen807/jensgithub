@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .like{
+            width: 100px;
+            padding: 5px 10px;
+            border: 1px solid #dbdbdb;
+            text-align: center;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="like">
+
+        <i class="fa-regular fa-thumbs-up"></i>
+        <span>좋아요</span>
+        <span class="number">0</span>
+
+    </div>
+    
+    <script>
+
+        // *이벤트
+        // =>어떠한 행위를 했을 때 상호 작용이 일어남
+        // *addEventListener("이벤트명", 실행할 함수)
+
+        const likeEl= document.querySelector(".like");
+        const numEl = document.querySelector(".number");
+        let num = 0;
+        
+        // likeEl.addEventListener("click", () => {
+        //     // likeEl.style.backgroundColor = "lightgray"
+        //     numEl.innerText = num++;
+        // });
+
+        const clickHandler = () => {
+            numEl.innerText = num++;
+        };
+        // =>화살표 함수는 반환값이 한줄일때 중괄호 생략 가능
+
+        likeEl.addEventListener("click", clickHandler);
+
+
+    </script>
+
+</body>
+</html>

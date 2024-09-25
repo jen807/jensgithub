@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <div class="box"></div>
+
+    <script>
+
+        // *자바스크립트 스타일
+        // =>선택자.style.속성 = "값";
+        // =>속성 명 중 - (하이픈)으로 들어가는 속성은
+        // 카멜케이스로 작성할 것
+        // =>태그 내부로 스타일이 적용되므로 우선순위가 높습니다 +_+ /
+
+        const boxEl = document.querySelector('.box');
+        
+        boxEl.style.width = "300px";
+        boxEl.style.height = "300px";
+        boxEl.style.backgroundColor = "salmon";
+
+    </script>
+    
+</body>
+</html>

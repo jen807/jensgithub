@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .con_wrap{
+            max-width: 1400px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        .con{
+            width: 32%;
+        }
+
+        .bg{
+            height: 450px;
+            background-color: lightgray;
+        }
+
+        .con h3{
+            font-size: 20px;
+        }
+
+        .active{
+            background-color: salmon;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="con_wrap">
+
+        <div class="con">
+            <div class="bg"></div>
+            <h3>title</h3>
+        </div>
+ 
+        <div class="con">
+            <div class="bg"></div>
+            <h3>title</h3>
+        </div>
+ 
+        <div class="con">
+            <div class="bg"></div>
+            <h3>title</h3>
+        </div>
+ 
+    </div>
+
+    <script>
+
+        const bgEl = document.querySelector('.bg');
+
+        const bgHandler = () => {
+            // bgEl.classList.add('active');
+            // =>클래스를 추가할 때 사용하며, 클래스 선택자를 쓸 때 필요한 점을 빼서 작성해야 됨( 이미 클래스라는 것을 알기 때문에 )
+
+            // bgEl.classList.remove('bg');
+            // =>클래스를 제거할 때 사용
+
+            bgEl.classList.toggle('active');
+            // =>add + remove = toggle
+
+            const result = bgEl.classList.contains('active');
+            // =>지정한 클래스의 유무에 따라 boolean 값으로 반환함
+            console.log(result);
+        }
+
+        bgEl.addEventListener('click', bgHandler);
+
+    </script>
+    
+</body>
+</html>
