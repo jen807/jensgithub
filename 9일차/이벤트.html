@@ -54,7 +54,9 @@
         const clickHandler = () => {
             numEl.innerText = num++;
         };
-        // =>화살표 함수는 반환값이 한줄일때 중괄호 생략 가능
+        // =>화살표 함수는 반환값이 한줄일때 중괄호 생략 가능 자동 리턴 
+        // const clickHandler = () => numEl.innerText = num++;
+
 
         likeEl.addEventListener("click", clickHandler);
 
