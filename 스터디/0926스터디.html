@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+
+        .like{
+            width: 50px;
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px auto;
+            border: 1px solid #333;
+            padding: 0 5px;
+            border-radius: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="like">
+        <i class="fa-solid fa-heart"></i>
+        <div class="likes">0개</div>
+    </div>
+
+    <script>
+
+        const likeEl = document.querySelector('.like');
+        const likesEl = document.querySelector('.likes')
+        let num = 0;
+
+        const clickHandler = () => {
+            num++;
+            likesEl.innerText = num + "개";
+        };
+
+        likeEl.addEventListener("click", clickHandler);
+
+    </script>
+
+</body>
+</html>

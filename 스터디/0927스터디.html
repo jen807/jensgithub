@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box_wrap{
+            width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .box{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- *기능 설명: 사용자가 색상 이름을 클릭하면 그 색상이 배경색으로 변경되는 간단한 웹 애플리케이션을 만드세요.
+
+    구현 요구 사항:
+    
+    HTML로 색상 목록을 표시하는 ul 요소와 각 색상을 나타내는 li 요소를 만듭니다.
+    JavaScript를 사용하여 다음 기능을 구현합니다:
+    사용자가 색상 이름을 클릭하면 해당 색상이 페이지의 배경색으로 설정됩니다.
+    색상 목록은 객체로 관리되어야 하며, 각 색상에 대한 이름과 실제 색상 값을 저장해야 합니다.
+    예시:
+    
+    색상 목록에 "빨강", "파랑", "초록"이 있을 때, 사용자가 "빨강"을 클릭하면 페이지 배경이 빨간색으로 변경됩니다. -->
+
+    
+    <div class="box_wrap">
+        <div class="box">빨강</div>
+        <div class="box">파랑</div>
+        <div class="box">초록</div>
+    </div>
+
+    <script>
+        
+        const wrapEl = document.querySelector('.box_wrap');
+        const boxEl = document.querySelectorAll('.box')
+        // const redEl = document.querySelectorAll('box1');
+        // const blueEl = document.querySelectorAll('box2');
+        // const greenEl = document.querySelectorAll('box3');
+
+        const clickHandler1 = (e) => {
+            
+            e.target.parentNode.classList.toggle('red');
+            
+        };
+        const clickHandler2 = (e) => {
+            
+            e.target.parentNode.classList.toggle('blue');
+            
+        };
+        const clickHandler3 = (e) => {
+            
+            e.target.parentNode.classList.toggle('green');
+            
+        };
+
+        boxEl[0].addEventListener('click', clickHandler1);
+        boxEl[1].addEventListener('click', clickHandler2);
+        boxEl[2].addEventListener('click', clickHandler3);
+
+        // -> 구린방법
+
+        
+
+    </script>
+
+</body>
+</html>
