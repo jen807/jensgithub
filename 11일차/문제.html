@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <div class="wrap">
+
+        현재 시간
+
+        <div class="watch">
+            
+            <div class="timer"><input type="date"></div>
+        </div>
+
+    </div>
+     -->
+
+    <!-- <script>
+
+        const watchEl = document.querySelector('.watch');
+        const timerEl = document.querySelector('.timer');
+        const date = new Date();
+
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        const sec = date.getSeconds();
+
+
+
+        const timeHandler = () => {
+            timerEl.innerHTML(`${hour}:${min}:${sec}`);
+        }
+
+        setInterval(timeHandler,3000)
+
+
+    </script> -->
+
+    <h2>현재시간</h2>
+    <div class="clock">00:00:00</div>
+
+    <script>
+
+        // *String()
+        // =>숫자 타입을 문자 타입으로 변경
+
+        // *padStart(개수, 값)
+        // =>문자 타입만 사용 가능
+        // =>이 문자열의 시작 부분에 다른 문자열을 채움
+        
+        const clockEl = document.querySelector('.clock')
+        
+        const timeHandler = () => {
+            const date = new Date();
+
+            const hour = String(date.getHours()).padStart(2, '0');
+            const min = String(date.getMinutes()).padStart(2, '0');
+            const sec = String(date.getSeconds()).padStart(2, '0');
+
+            // console.log(typeof hour);
+
+
+            clockEl.innerText = `${hour}:${min}:${sec}`;
+        }
+
+        timeHandler();
+        // =>setInterval함수로 1초 뒤에 시간이 지정되므로
+        // 1초 뒤가 아닌 함수를 바로 호출해줘서 바로 시간이 출력되게 만들어줌
+
+        // =>같은 단어 누르고 ctrl d 하면 선택됨
+
+        setInterval(timeHandler, 1000);
+
+    </script>
+
+
+</body>
+</html>

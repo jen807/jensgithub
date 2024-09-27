@@ -16,27 +16,35 @@
         .box_wrap{
             width: 1000px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
             margin: 0 auto;
+            height: 300px;
         }
 
         .box{
             width: 300px;
-            height: 300px;
+            height: 200px;
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid darkgray;
+            border-radius: 30px;
         }
 
         .green{
             background-color: green;
+            color: green;
         }
         .red{
             background-color: red;
+            color: red;
         }
         .blue{
             background-color: blue;
+            color: blue;
         }
 
     </style>
@@ -45,14 +53,6 @@
 <body>
     
     <!-- *기능 설명: 사용자가 색상 이름을 클릭하면 그 색상이 배경색으로 변경되는 간단한 웹 애플리케이션을 만드세요.
-
-    구현 요구 사항:
-    
-    HTML로 색상 목록을 표시하는 ul 요소와 각 색상을 나타내는 li 요소를 만듭니다.
-    JavaScript를 사용하여 다음 기능을 구현합니다:
-    사용자가 색상 이름을 클릭하면 해당 색상이 페이지의 배경색으로 설정됩니다.
-    색상 목록은 객체로 관리되어야 하며, 각 색상에 대한 이름과 실제 색상 값을 저장해야 합니다.
-    예시:
     
     색상 목록에 "빨강", "파랑", "초록"이 있을 때, 사용자가 "빨강"을 클릭하면 페이지 배경이 빨간색으로 변경됩니다. -->
 
@@ -67,22 +67,25 @@
         
         const wrapEl = document.querySelector('.box_wrap');
         const boxEl = document.querySelectorAll('.box')
-        // const redEl = document.querySelectorAll('box1');
-        // const blueEl = document.querySelectorAll('box2');
-        // const greenEl = document.querySelectorAll('box3');
 
         const clickHandler1 = (e) => {
             
+            e.target.parentNode.classList.remove('blue');
+            e.target.parentNode.classList.remove('green');
             e.target.parentNode.classList.toggle('red');
             
         };
         const clickHandler2 = (e) => {
             
+            e.target.parentNode.classList.remove('red');
+            e.target.parentNode.classList.remove('green');
             e.target.parentNode.classList.toggle('blue');
             
         };
         const clickHandler3 = (e) => {
             
+            e.target.parentNode.classList.remove('blue');
+            e.target.parentNode.classList.remove('red');
             e.target.parentNode.classList.toggle('green');
             
         };
@@ -93,8 +96,56 @@
 
         // -> 구린방법
 
-        
+        // const colorMap = [
 
+        //     {
+        //         color: "red"
+        //     },
+             
+
+        //     {
+        //         color: "blue"
+        //     },
+             
+
+        //     {
+        //         color: "green"
+        //     },
+             
+
+        // ]
+
+        // const clickHandler = (e) => {
+        //     const color = e.target.colorMap.color;
+        //     document.box_wrap.style.backgroundColor = color;
+        // };
+
+        // for (let i = 0; i < boxEl.length; i++) {
+        //     boxEl[i].addEventListener('click', clickHandler);
+        // }
+
+
+        // const colorMap = [
+        //     { name: "빨강", color: "red" },
+        //     { name: "파랑", color: "blue" },
+        //     { name: "초록", color: "green" }
+        // ];
+
+        // const clickHandler = (e) => {
+        //     e.target.colorMap[index].color;
+        //     document.body.style.backgroundColor = color;
+        // };
+
+        // for (let i = 0; i < boxEl.length; i++) {
+
+        //     const clickHandler = (e) => {
+        //     e.target.colorMap[i].color;
+        //     document.body.style.backgroundColor = color;
+        //     };
+
+        //     boxEl[i].addEventListener('click', clickHandler); 
+        // }
+        
     </script>
 
 </body>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading{
+            width: 100px;
+            height: 100px;
+            border: 10px solid lightgray;
+            border-radius: 50%;
+            border-color: lightgray transparent transparent transparent;
+            animation: loading_ani 1s infinite;
+        }
+
+        @keyframes loading_ani {
+            0%{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+
+        .active{
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="wrap">
+
+        <div class="loading"></div>
+
+    </div>
+
+    <script>
+
+        const loadingEl = document.querySelector('.loading');
+
+        setTimeout(() => {
+            loadingEl.classList.add('active')
+        }, 2000);
+
+    </script>
+    
+    
+</body>
+</html>
