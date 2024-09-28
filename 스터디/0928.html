@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul,li{
+            list-style: none;
+        }
+
+        .wrap{
+            max-width: 480px;
+            height: 100vh;
+            width: 100%;
+            margin: 0 auto;
+            border: 10px solid black;
+            position: relative;
+            background-color: white;
+        }
+
+        .hambuger{
+            position: absolute;
+            text-align: center;
+            line-height: 72px;
+            width: 72px;
+            height: 72px;
+            top: 0px;
+            right: 10px;
+            font-size: 50px;
+            cursor: pointer;
+        }
+
+        .bg{
+            background-color: white;
+            z-index: 990;
+            width: 150px;
+            height: 200px;
+            position: absolute;
+            top: 72px;
+            right: -160px;
+        }
+
+        .menu{
+            background-color: lightgray;
+            width: 150px;
+            height: 200px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 72px;
+            right: -160px;
+            transition-duration: 0.3s;
+        }
+
+        .active{
+            transform: translateX(-160px);
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+
+        <div class="hambuger">=</div>
+
+        <div class="bg"></div>
+
+        <ul class="menu">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVA SCRIPT</li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        const hamEl = document.querySelector('.hambuger');
+        const menuEl = document.querySelector('.menu')
+
+        
+        const clickHandler = () => {
+            menuEl.classList.toggle('active')
+        }
+
+        hamEl.addEventListener('click', clickHandler);
+
+    </script>
+</body>
+</html>

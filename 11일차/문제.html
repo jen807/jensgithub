@@ -63,8 +63,14 @@
 
             // console.log(typeof hour);
 
+            if(hour > 12){
+                clockEl.innerText = `오후 ${hour - 12}:${min}:${sec}`;
+            }else if(hour === 12){
+                clockEl.innerText = `오후 ${hour}:${min}:${sec}`;
+            }else{
+                clockEl.innerText = `오전 ${hour}:${min}:${sec}`;
+            };
 
-            clockEl.innerText = `${hour}:${min}:${sec}`;
         }
 
         timeHandler();

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box_wrap {
+            width: 1000px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 0 auto;
+            height: 300px;
+            background-color: white;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid darkgray;
+            border-radius: 30px;
+        }
+
+        .green {
+            background-color: green;
+            color: white;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+        }
+
+        .blue {
+            background-color: blue;
+            color: white;
+        }
+
+       
+
+    </style>
+</head>
+<body>
+    <div class="box_wrap">
+        <div class="box">빨강</div>
+        <div class="box">파랑</div>
+        <div class="box">초록</div>
+    </div>
+
+    <script>
+
+    const wrapEl = document.querySelector('.box_wrap');
+    const boxEl = document.querySelectorAll('.box');
+
+    const toggleColor = (box, color) => {
+        for (let i = 0; i < boxEl.length; i++) {
+            if (boxEl[i] !== box) {
+                boxEl[i].style.color = 'black';
+            }
+        }
+        
+        if (box.style.color === color) {
+            box.style.color = 'black';
+            wrapEl.style.backgroundColor = 'white';
+        } else {
+            box.style.color = color;
+            wrapEl.style.backgroundColor = color;
+        }
+    };
+
+    const clickHandler = (e) => {
+        if (e.target === boxEl[0]) {
+            toggleColor(boxEl[0], 'red');
+        } else if (e.target === boxEl[1]) {
+            toggleColor(boxEl[1], 'blue');
+        } else if (e.target === boxEl[2]) {
+            toggleColor(boxEl[2], 'green');
+        }
+    };
+
+    for (let i = 0; i < boxEl.length; i++) {
+        boxEl[i].addEventListener('click', clickHandler);
+    }
+    </script>
+</body>
+</html>
