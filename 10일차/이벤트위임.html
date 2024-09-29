@@ -58,18 +58,14 @@
         // //     conAll[2].classList.add('active');
         // // });
 
-        // for(let i = 0; i < conAll.length; i++){
-        //     conAll[i].addEventListener('click', () => {
-        //     conAll[i].classList.toggle('active');
-        // })};
-
+        
         // *이벤트 위임
         // =>부모에게 이벤트를 적용시킴
         // =>자식이 필요하면 이벤트가 설정됨
-
+        
         const conWrapEl = document.querySelector('.con_wrap');
         // console.log(conWrap);
-
+        
         // *이벤트
         // 1.컨텐츠를 클릭하면 active 클래스가 추가되길 원함
         // =>이벤트 위임
@@ -77,7 +73,12 @@
         // =>선택된 부모에게 클릭 이벤트를 적용함
         // =>클릭한 엘리먼트 알아오기 (e.target)
         // =>클릭한 엘리먼트가 con 라면 클래스를 추가해줌
-
+        for(let i = 0; i < conAll.length; i++){
+            conAll[i].addEventListener('click', () => {
+            conAll[i].classList.toggle('active');
+        })};
+        
+        
         const handleClick = (e) => {
             if(e.target.classList.contains('con')){
                 e.target.classList.toggle('active')
