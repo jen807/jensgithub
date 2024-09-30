@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box_wrap{
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        .box{
+            width: 200px;
+            height: 100%;
+            background-color: lightblue;
+            transition-duration: 0.5s;
+        }
+
+        .active{
+            border-radius: 300px;
+            transform: rotate(180deg);
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <div class="box_wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <button class="add">추가</button>
+    <button class="remove">제거</button>
+
+    <script>
+
+        const boxwrapEl = document.querySelector('.box_wrap');
+
+        const clickHandler = (e) => {
+            if(e.target.classList.contains('box')){
+                e.target.classList.toggle('active');
+            }
+        };
+
+        boxwrapEl.addEventListener('click', clickHandler);
+
+        const addButton = document.querySelector('.add');
+
+        const addHandler = () => {
+            const newBox = document.createElement('div');
+            newBox.classList.add('box');
+            boxwrapEl.append(newBox);
+        };
+
+        addButton.addEventListener('click', addHandler);
+
+        const removeButton = document.querySelector('.remove');
+
+        const removeHandler = () => {
+            const currentBoxes = document.querySelectorAll('.box');
+            if (currentBoxes.length > 0) {
+                currentBoxes[currentBoxes.length - 1].remove();
+            }
+        };
+        
+        removeButton.addEventListener('click', removeHandler);
+
+    </script>
+</body>
+</html>
+
+

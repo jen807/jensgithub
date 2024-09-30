@@ -67,12 +67,12 @@
 
     const toggleColor = (box, color) => {
         for (let i = 0; i < boxEl.length; i++) {
-            if (boxEl[i] !== box) {
+            if (boxEl[i] !== box){
                 boxEl[i].style.color = 'black';
             }
         }
         
-        if (box.style.color === color) {
+        if (box.style.color === color){
             box.style.color = 'black';
             wrapEl.style.backgroundColor = 'white';
         } else {
@@ -82,11 +82,11 @@
     };
 
     const clickHandler = (e) => {
-        if (e.target === boxEl[0]) {
+        if (e.target === boxEl[0]){
             toggleColor(boxEl[0], 'red');
-        } else if (e.target === boxEl[1]) {
+        } else if (e.target === boxEl[1]){
             toggleColor(boxEl[1], 'blue');
-        } else if (e.target === boxEl[2]) {
+        } else if (e.target === boxEl[2]){
             toggleColor(boxEl[2], 'green');
         }
     };

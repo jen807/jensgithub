@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .con_wrap {
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            width: 500px;
+            height: 400px;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .con {
+            width: 100%;
+            height: 300px;
+            background-color: gray;
+        }
+
+        .like_wrap {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background-color: gray;
+            margin-right: 10px;
+        }
+
+        .like_text {
+            margin-left: 10px; /* 좋아요 텍스트와 아이콘 사이의 여백 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="con_wrap">
+            <div class="title">
+                <div class="profile"></div>
+                <div class="username"></div>
+            </div>
+            <div class="con"></div>
+            <div class="like_wrap">
+                <div class="text">0개</div>
+                <i class="fa-regular fa-heart like-button"></i>         
+            </div>
+        </div>
+        <div class="con_wrap">
+            <div class="title">
+                <div class="profile"></div>
+                <div class="username"></div>
+            </div>
+            <div class="con"></div>
+            <div class="like_wrap">
+                <div class="text">0개</div>
+                <i class="fa-regular fa-heart like-button"></i>         
+            </div>
+        </div>
+        <div class="con_wrap">
+            <div class="title">
+                <div class="profile"></div>
+                <div class="username"></div>
+            </div>
+            <div class="con"></div>
+            <div class="like_wrap">
+                <div class="text">0개</div>
+                <i class="fa-regular fa-heart like-button"></i>         
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const posts = [
+            {
+                username: "user 1",
+                content: "This is the first post!",
+                likes: 0
+            },
+            {
+                username: "user 2",
+                content: "This is the second post!",
+                likes: 0
+            },
+            {
+                username: "user 3",
+                content: "This is the third post!",
+                likes: 0
+            }
+        ];
+
+        const conWraps = document.querySelectorAll('.con_wrap');
+
+        posts.forEach((post, index) => {
+            const usernameEl = conWraps[index].querySelector('.username');
+            const contentEl = conWraps[index].querySelector('.con');
+            const likeButton = conWraps[index].querySelector('.like-button');
+            const likeText = conWraps[index].querySelector('.text');
+
+            usernameEl.innerText = post.username;
+            contentEl.innerText = post.content;
+
+            likeButton.addEventListener('click', () => {
+                post.likes++;
+                likeText.innerText = post.likes + "개";
+                likeButton.classList.toggle('fa-regular');
+                likeButton.classList.toggle('fa-solid');
+            });
+        });
+    </script>
+
+</body>
+</html>

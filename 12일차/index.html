@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .con_wrap{
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            width: 500px;
+            height: 400px;
+
+            margin-bottom: 30px;
+        }
+
+        .title{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .con{
+            width: 100%;
+            height: 300px;
+            background-color: gray;
+        }
+
+        .like_wrap{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .profile{
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background-color: gray;
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <div class="con_wrap">
+        
+            <div class="title">
+                <div class="profile"></div>
+                <div class="username">user 1</div>
+            </div>
+    
+            <div class="con"></div>
+    
+            <div class="like_wrap">
+    
+                <!-- <i class="fa-solid fa-heart"></i> >꽉찬하트 -->
+    
+                <i class="fa-regular fa-heart"></i>
+    
+                <div class="text"></div>            
+                
+            </div>
+    
+        </div>
+
+    </div>
+
+    <script>
+
+        const likewrapEl = document.querySelector('.like_wrap');
+        const likeEl = document.querySelector('.fa-regular fa-heart')
+
+        const likeHandler = (e) => {
+            e.target.classList.toggle('fa-regular')
+            e.target.classList.toggle('fa-solid')
+        };
+
+        likewrapEl.addEventListener('click', likeHandler);
+
+    </script>
+    
+</body>
+</html>
