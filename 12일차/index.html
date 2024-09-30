@@ -23,7 +23,6 @@
             border-radius: 10px;
             width: 500px;
             height: 400px;
-
             margin-bottom: 30px;
         }
 
@@ -59,6 +58,14 @@
             margin-right: 10px;
         }
 
+        .likenum{
+            margin-left: 10px;
+        }
+
+        .fa-solid.fa-heart{
+            color: red;
+        }
+
     </style>
 </head>
 <body>
@@ -76,9 +83,8 @@
     
             <div class="like_wrap">
     
-                <!-- <i class="fa-solid fa-heart"></i> >꽉찬하트 -->
-    
                 <i class="fa-regular fa-heart"></i>
+                <div class="likenum">0개</div>
     
                 <div class="text"></div>            
                 
@@ -88,14 +94,31 @@
 
     </div>
 
-    <script>
+    <script> 
 
         const likewrapEl = document.querySelector('.like_wrap');
-        const likeEl = document.querySelector('.fa-regular fa-heart')
+        const likeEl = document.querySelector('.fa-regular.fa-heart');
+        const likenumEl = document.querySelector('.likenum');
+        let num = 340;
+
+        likenumEl.innerText = num + "개";
 
         const likeHandler = (e) => {
-            e.target.classList.toggle('fa-regular')
-            e.target.classList.toggle('fa-solid')
+            toggleLike();
+        };
+
+        const toggleLike = () => {
+            
+            likeEl.classList.toggle('fa-regular');
+            likeEl.classList.toggle('fa-solid');
+
+            if(likeEl.classList.contains('fa-solid')){
+                num++;
+            }else{
+                num--;
+            };
+
+            likenumEl.innerText = num + "개";
         };
 
         likewrapEl.addEventListener('click', likeHandler);
