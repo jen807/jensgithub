@@ -12,6 +12,10 @@
             box-sizing: border-box;
         }
 
+        body{
+            padding-top: 30px;
+        }
+
         .wrap{
             width: 500px;
             margin: 0 auto;
@@ -70,6 +74,33 @@
         .fa-solid.fa-heart{
             color: red;
         }
+
+        button{
+            all: unset;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: black;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 30px;
+        }
+
+        .darkmode{
+            background-color: black;
+            color: rgb(201, 201, 201);
+        }
+        
+        .darkmode2{
+            background-color: rgb(201, 201, 201);
+            color: black;
+        }
+       
+
     </style>
 </head>
 <body>
@@ -79,15 +110,12 @@
 
     <script>
 
-        const profileinput = prompt("유저명을 입력해주세요")
-        const textinput = prompt("들어갈 글을 입력해주세요")
-
         const users = [
             {   
                 profile: "https://res.cloudinary.com/kyte/image/upload/w_1200,h_630,q_auto,e_sharpen:50,c_fill,g_auto/v1618208091/content/shutterstock/ETC/green_field_0",   
-                username: profileinput,
+                username: "user",
                 likes: 340,
-                text: textinput,
+                text: "text",
                 con: "url(https://res.cloudinary.com/kyte/image/upload/w_1200,h_630,q_auto,e_sharpen:50,c_fill,g_auto/v1618208091/content/shutterstock/ETC/green_field_0)"
             },
 
@@ -109,12 +137,49 @@
         ];
 
         // 유저정보 배열, 객체 지정
+        
+        const profileinput = prompt("유저명을 입력해주세요");
+        const textinput = prompt("들어갈 글을 입력해주세요");
 
+        const newUser = {   
+            profile: "https://res.cloudinary.com/kyte/image/upload/w_1200,h_630,q_auto,e_sharpen:50,c_fill,g_auto/v1618208091/content/shutterstock/ETC/green_field_0", // 기본 프로필 이미지
+            username: profileinput,
+            likes: 0,
+            text: textinput,
+            con: "url(https://res.cloudinary.com/kyte/image/upload/w_1200,h_630,q_auto,e_sharpen:50,c_fill,g_auto/v1618208091/content/shutterstock/ETC/green_field_0)" // 기본 이미지
+        };
+
+        users.push(newUser);
+
+        // 새로운 사용자 정보 users 배열에 추가
+
+        const bodyEl = document.querySelector('body');
         const wrapEl = document.querySelector('.wrap');
 
-        for(let i = 0; i < users.length; i++){
-            const user = users[i];
+        const btnEl = document.createElement('button');
+        btnEl.innerText = "다크모드 켜기";
 
+            wrapEl.append(btnEl);
+
+            const darkmodeHandler = () => {
+                wrapEl.classList.toggle('darkmode');
+                bodyEl.classList.toggle('darkmode');  
+                btnEl.classList.toggle('darkmode2');
+                
+                if(btnEl.classList.contains('darkmode2')){
+                    btnEl.innerText = "기본모드 켜기";
+                }else{
+                    btnEl.innerText = "다크모드 켜기";
+                };
+            };
+
+            btnEl.addEventListener('click', darkmodeHandler)
+
+            
+
+        for(let i = 0; i < users.length; i++){
+
+            const user = users[i];
 
             // -인덱스 넘버 포함된걸 변수로 지정해줌
 
@@ -134,10 +199,10 @@
 
             const conEl = document.createElement('div');
             conEl.classList.add('con');
-            conEl.style.backgroundImage = user.con
-            conEl.style.backgroundPosition = "center"
-            conEl.style.backgroundSize = "cover"
-            conEl.style.backgroundRepeat = "no-repeat"
+            conEl.style.backgroundImage = user.con;
+            conEl.style.backgroundPosition = "center";
+            conEl.style.backgroundSize = "cover";
+            conEl.style.backgroundRepeat = "no-repeat";
 
             // -게시물 사진 스타일 조정
 
@@ -146,7 +211,7 @@
             likeWrapEl.innerHTML = `
                 <i class="fa-regular fa-heart"></i>
                 <div class="likenum">${user.likes}개</div>
-                <div class="text">${user.text} ${i + 1}</div>
+                <div class="text">${user.text}</div>
             `;
 
             // -like_wrap 만들기 + 좋아요 갯수 + 유저 글
@@ -162,21 +227,24 @@
             const likenumEl = likeWrapEl.querySelector('.likenum');
 
             const toggleLike = () => {
+
                 likeEl.classList.toggle('fa-regular');
                 likeEl.classList.toggle('fa-solid');
 
-                if(likeEl.classList.contains('fa-solid')) {
+                if(likeEl.classList.contains('fa-solid')){
                     user.likes++;
                 }else{
                     user.likes--;
                 };
 
                 likenumEl.innerText = user.likes + "개";
+
             };
 
             likeWrapEl.addEventListener('click', toggleLike);
             
             // -하트 + 좋아요 수 올라가는 함수 만들고 이벤트 추가
+
         };
 
     </script>
