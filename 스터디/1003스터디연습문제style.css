@@ -1,0 +1,76 @@
+.body_active {
+    background-color: rgb(34, 34, 34);
+    color: rgb(255, 255, 255);
+  }
+  
+  .section_1 {
+    margin-top: 200px;
+    width: 90%;
+    margin: 200px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  .content {
+    width: 13vw;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .content a {
+    position: relative;
+    width: 13vw;
+    height: 13vw;
+    border-radius: 20px;
+    overflow: hidden;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img {
+    height: 100%;
+    display: block;
+  }
+  
+  .info {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    letter-spacing: -2px;
+  }
+  
+  .host {
+    color: gray;
+  }
+  
+  .toggle {
+    margin: 0 auto;
+    width: 80px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    position: relative;
+  }
+  
+  .circle {
+    width: 25px;
+    height: 25px;
+    background-color: gainsboro;
+    border-radius: 100%;
+    position: relative;
+    top: 2.5px;
+    left: 2.5px;
+  }
+  
+  .active {
+    background-color: rgb(65, 255, 65);
+  }
+  
+  .toggle.active .circle {
+    left: 52.5px;
+  }
