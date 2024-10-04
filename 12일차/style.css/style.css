@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    color: #1d1d1d;
+    text-decoration: none;
+}
+
+ul,li{
+    list-style: none;
+}
+
+header{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu{
+    cursor: pointer;
+    font-size: 26px;
+    z-index: 10;
+}
+
+.menu_wrap{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #f1f1f1;
+    transition: 0.5s;
+}
+
+.menu_active{
+    left: 0;
+}
+
+.menu_wrap li{
+    font-size: 30px;
+    margin-bottom: 30pxs;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+.wrap{
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.con{
+    background-color: #f1f1f1;
+    margin-top: 35px;
+    padding: 20px;
+}
+
+.user_info{
+    display: flex;
+    align-items: center;
+}
+
+.avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: lightgray;
+    overflow: hidden;
+}
+
+.bg{
+    height: 400px;
+    background-color: lightgray;
+    margin: 20px 0;
+
+}
+
+.bg img{
+    height: 100%;
+    object-fit: cover;
+    /* =>이미지 태그를 배경이미지처럼 가득 채울때 사용 (잘려나가는 영역이 생김) */
+}
+
+.avatar img{
+    height: 100%;
+    object-fit: cover;
+    /* =>이미지 태그를 배경이미지처럼 가득 채울때 사용 (잘려나가는 영역이 생김) */
+}
+
+
+.heart{
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+}
+
+.full_heart{
+    color: red;
+}
