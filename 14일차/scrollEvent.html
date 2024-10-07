@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header{
+            padding: 20px 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition-duration: 0.5s;
+        }
+
+        section{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section h3{
+            font-size: 50px;
+        }
+
+        .section_1{
+            background-color: lightgray;
+        }
+
+        .section_2{
+            padding: 100px 0;
+            display: block;
+        }
+
+        .title{
+            text-align: center;
+            margin-bottom: 30px;
+            transform: translateY(150px);
+            opacity: 0;
+            transition-duration: 0.3s;
+        }
+
+        .title_active{
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .con_wrap{
+            padding: 0 250px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .con{
+            width: 32%;
+            height: 500px;
+            background-color: lightgray;
+        }
+
+        .section_3{
+            height: 700px;
+            background-color: lightgray;
+        }
+
+        .header_active{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <header>
+            <h3>Header</h3>
+        </header>
+
+        <section class="section_1">
+            <h3>section</h3>
+        </section>
+
+        <section class="section_2">
+            
+            <h3 class="title">second title</h3>
+            <div class="con_wrap">
+                <div class="con"></div>
+                <div class="con"></div>
+                <div class="con"></div>
+            </div>
+
+        </section>
+
+        <section class="section_3">
+            <h3>section</h3>
+        </section>
+
+    </div>
+
+    <script>
+
+        const headerEl = document.querySelector('header');
+        const secEl_2 = document.querySelector('.section_2');
+        const titleEl = document.querySelector('.title')
+        
+        const handleScroll = () => {
+            const pageY = pageYOffset;
+            // =>스크롤바의 높이값을px 단위로 알아옴
+            // console.log(pageY);
+            const secTop_2 = secEl_2.offsetTop;
+            // =>엘리먼트의 top값을 px 단위로 알아옴
+            // console.log(secTop_2);
+
+            if(pageY >= 300){
+                headerEl.classList.add('header_active');
+            }else{
+                headerEl.classList.remove('header_active')
+            };
+
+            if(pageY >= secTop_2 / 2){
+                titleEl.classList.add('title_active');
+            }else{
+                titleEl.classList.remove('title_active')
+            };
+        };
+
+        window.addEventListener('scroll', handleScroll)
+
+    </script>
+    
+</body>
+</html>

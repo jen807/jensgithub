@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header{
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress{
+            height: 20px;
+            background-color: lightgray;
+        }
+
+        .bar{
+            width: 0%;
+            height: 100%;
+            background-color: rgb(102, 102, 102);
+        }
+
+        section{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section h3{
+            font-size: 50px;
+        }
+
+        .section_1{
+            background-color: lightsalmon;
+        }
+
+        .section_2{
+            padding: 100px 0;
+            display: block;
+        }
+
+        .title{
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 1;
+            transition-duration: 0.3s;
+        }
+
+        .con_wrap{
+            padding: 0 250px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .con{
+            width: 32%;
+            height: 500px;
+            background-color: lightgray;
+        }
+
+        .section_3{
+            height: 700px;
+            background-color: lightgray;
+            
+        }
+
+    </style>
+
+</head>
+
+</head>
+<body>
+
+    <div class="wrap">
+
+        <header>
+            <div class="progress">
+                <div class="bar"></div>
+            </div>
+        </header>
+
+        <section class="section_1">
+            <h3>section</h3>
+        </section>
+
+        <section class="section_2">
+            
+            <h3 class="title">second title</h3>
+            <div class="con_wrap">
+                <div class="con"></div>
+                <div class="con"></div>
+                <div class="con"></div>
+            </div>
+
+        </section>
+
+        <section class="section_3">
+            <h3>section</h3>
+        </section>
+
+    </div>
+    
+    <script>
+
+        // const wrapEl = document.querySelector('.wrap');
+        // const barEl = document.querySelector('.bar');
+        // const pageY = pageYOffset;
+        // const wrapHeight = wrapEl.offsetHeight;
+        // const windowHeight = window.innerHeight;
+
+        // const allHeight = wrapHeight - windowHeight
+        
+        
+        // const handleScroll = () => {
+            //     const barY = (pageY / allHeight) * 100;
+            //     barEl.style.width = `${barY}%`;
+        // };
+        
+        // barEl.addEventListener('scroll', handleScroll);
+        // // console.log(barY);
+
+        
+        // wrapEl.offsetHeight
+        // window.innerHeight
+        // 위 변수들을 스크롤 이벤트 안에 넣어야했음
+        // 이벤트가 적용되는 객체를 barEl이 아니라 window에 적용해야했다. 스크롤이 되는건 윈도우 창 그 자체이니까
+        // 스크롤바 자체의 크기값을 예상하지 못해 바의 넓이가 100%가 되지 못했다.
+        
+
+        const wrapEl = document.querySelector('.wrap');
+
+        const handleScroll = () => {
+            const pageY = pageYOffset;
+            const wrapElHeight = wrapEl.offsetHeight;
+            // // =>wrap의 높이값
+            // console.log("wrap의 높이 값" + wrapElHeight);
+            // console.log("브라우저의 높이값:" + window.innerHeight)
+            const barEl = document.querySelector('.bar');
+            
+            const useScroll = wrapElHeight - window.innerHeight
+            // =>전체 높이 - 브라우저의 높이 = 순수 사용할 수 있는 높이값
+            // console.log(allHeight);
+
+            const result = pageY / useScroll * 100;
+
+            barEl.style.width = `${result}%`
+
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+    </script>
+
+</body>
+</html>

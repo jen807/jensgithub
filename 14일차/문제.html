@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            height: 300vh;
+        }
+
+        .box{
+            width: 300px;
+            height: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: salmon;
+            transition-duration: 0.5s;
+        }
+        
+        .box_active{
+            transform: rotate(180deg);
+        }
+        /* 
+        *문제
+        스크롤을 내렸을때 엘리먼트가 회전되게 만들기 */
+
+    </style>
+</head>
+<body>
+    
+<div class="wrap">
+    <div class="box"></div>
+</div>
+
+<script>
+
+            
+    const boxEl = document.querySelector('.box');
+    
+    const handleScroll = () => {
+        const pageY = pageYOffset;
+        boxEl.style.transfrom = `translate(-50%, -50%) rotate(${pageY}deg)`;
+    };
+
+    
+    
+    window.addEventListener('scroll', handleScroll);
+
+</script>
+
+</body>
+</html>
