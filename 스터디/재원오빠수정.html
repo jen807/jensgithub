@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    padding: 20px 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section h3{
+    font-size: 50px;
+}
+
+.section_1{
+    background-color: lightgray;
+}
+
+.section_2{
+    height: 300vh;
+    padding: 100px 0;
+    display: block;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 30px;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.title_active{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.con_wrap{
+    padding: 0 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fix{
+    position: fixed;
+    top: 140px;
+    left: 0;
+    width: 100%;
+}
+
+/* .con_before{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    transform: translateY(-150px);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.con_after{
+    position: fixed;
+    top: 140px;
+    left: 0;
+    width: 100%;
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.5s;
+} */
+
+.con_back{
+    top: 140px;
+    left: 0;
+    width: 100%;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.con{
+    width: 32%;
+    height: 500px;
+    background-color: darkgray;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.active01{
+    width: 49%;
+    border-radius: 30px;
+}
+
+.active02{
+    width: 24%;
+    border-radius: 30px;
+}
+
+.active03{
+    width: 24%;
+    border-radius: 30px;
+}
+
+.section_3{
+    height: 700px;
+    background-color: lightgray;
+}
+
+.header_active{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 990;
+}
+
+</style>
+
+</head>
+<body>
+
+    <div class="wrap">
+
+        <header>
+            <h3>Header</h3>
+        </header>
+
+        <section class="section_1">
+            <h3>section</h3>
+        </section>
+
+        <section class="section_2">
+
+            <h3 class="title">section title</h3>
+            <div class="con_wrap">
+                <div class="con"></div>
+                <div class="con"></div>
+                <div class="con"></div>
+            </div>
+
+        </section>
+
+        <section class="section_3">
+            <h3>section</h3>
+        </section>
+
+    </div>
+
+    <script>
+
+        const headerEl = document.querySelector(`header`);
+        const secEl_2 = document.querySelector(`.section_2`);
+        const titleEl = document.querySelector(`.title`);
+        const conEl = document.querySelector(`.con_wrap`);
+        const secEl_3 =document.querySelector(`.section_3`);
+        const conAll = document.querySelectorAll(`.con`);
+
+
+        const handleScroll = () => {
+            const pageY = pageYOffset;
+            // =>스크롤바의 높이값을 px단위로 알아옴
+            console.log(pageY);
+            const secTop_2 = secEl_2.offsetTop;
+            // =>엘리먼트의 top값을 px단위로 알아옴
+            // console.log(secTop_2);
+            // console.log(conEl.offsetTop)
+
+            const conY = conEl.offsetTop
+
+            const conEl_3Y = secEl_3.offsetTop;
+            // console.log(conEl_3Y);
+
+            if(pageY >= 300){
+                headerEl.classList.add(`header_active`);
+            }else{
+                headerEl.classList.remove(`header_active`);
+            };
+
+            if(pageY >= secTop_2 / 2){
+                titleEl.classList.add(`title_active`);
+            }else{
+                titleEl.classList.remove(`title_active`);
+            }
+
+            if(pageY >= secEl_2.offsetTop){
+                conEl.classList.add(`fix`);
+            }else{
+                conEl.classList.remove(`fix`);
+            }
+
+
+            if (pageY >= 2000) {
+                conAll[0].classList.remove(`active02`);
+                conAll[1].classList.remove(`active01`);
+                conAll[2].classList.remove(`active02`);
+
+                conAll[0].classList.add(`active02`);
+                conAll[1].classList.add(`active02`);
+                conAll[2].classList.add(`active01`);
+                
+                conAll[0].style.backgroundColor = "lightgray"
+                conAll[1].style.backgroundColor = "lightgray"
+                conAll[2].style.backgroundColor = "salmon"
+            } else if (pageY >= 1500) {
+                conAll[0].classList.remove(`active01`);
+                conAll[1].classList.remove(`active02`);
+                conAll[2].classList.remove(`active02`);
+                
+                conAll[0].classList.add(`active02`);
+                conAll[1].classList.add(`active01`);
+                conAll[2].classList.add(`active02`);
+                conAll[2].style.backgroundColor = "lightgray"
+                conAll[0].style.backgroundColor = "lightgray"
+                conAll[1].style.backgroundColor = "salmon"
+            } else if (pageY >= 1000) {
+                conAll[0].classList.remove(`active01`);
+                conAll[1].classList.remove(`active02`);
+                conAll[2].classList.remove(`active02`);
+
+                conAll[0].classList.add(`active01`);
+                conAll[1].classList.add(`active02`);
+                conAll[2].classList.add(`active02`);
+
+                conAll[1].style.backgroundColor = "lightgray"
+                conAll[2].style.backgroundColor = "lightgray"
+                conAll[0].style.backgroundColor = "salmon"
+            } else {
+                conAll[0].classList.remove(`active01`);
+                conAll[1].classList.remove(`active01`);
+                conAll[2].classList.remove(`active01`);
+
+                conAll[0].classList.remove(`active02`);
+                conAll[1].classList.remove(`active02`);
+                conAll[2].classList.remove(`active02`);
+
+                conAll[0].classList.remove(`active03`);
+                conAll[1].classList.remove(`active03`);
+                conAll[2].classList.remove(`active03`);
+
+                conAll[0].style.backgroundColor = "lightgray"
+                conAll[1].style.backgroundColor = "lightgray"
+                conAll[2].style.backgroundColor = "lightgray"
+            };
+            
+            if(pageY >= 2900){
+                conEl.style.opacity = 0;
+                conEl.style.transition = "0.3s";
+            };
+
+            if(pageY < 2900){
+                conEl.style.opacity = 1;
+                conEl.style.transition = "0.3s";
+            };
+        }
+
+        window.addEventListener(`scroll`, handleScroll);
+
+    </script>
+    
+</body>
+</html>

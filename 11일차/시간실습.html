@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .clock{
+            width: 200px;
+            height: 200px;
+            border: 5px solid black;
+            border-radius: 50%;
+            position: relative;
+            margin: 50px auto;
+        }
+        .one{
+            width: 10px;
+            height: 10px;
+            margin: 95px auto;            
+            background-color: black;
+            border-radius: 50%;
+        }
+        .second{
+            position: absolute;
+            width: 50%;
+            height: 1px;
+            background: linear-gradient(to left, transparent 50%, red 50%);
+            top: 50%;
+            left: 50%;
+            transform: rotate(90deg);
+        }
+        .minute{
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(to left, transparent 50%, black 50%);
+            top: 50%;
+            left: 50%;
+            transform: rotate(90deg);
+        }
+        .hour{
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(to left, transparent 50%, black 50%);
+            top: 50%;
+            left: 50%;
+            transform: rotate(90deg);
+        }
+        .time{
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div class="one"></div>
+    <div class="second"></div>
+    <div class="minute"></div>
+    <div class="hour"></div>
+</div>
+<div class="time"></div>
+<script>
+    const secondHand = document.querySelector('.second');
+    const minuteHand = document.querySelector('.minute');
+    const hourHand = document.querySelector('.hour');
+    const clockEl = document.querySelector('.time');
+
+    const timeHandler = () => {
+        const date = new Date();
+        const seconds = date.getSeconds();
+        const minutes = date.getMinutes();
+        const hours = date.getHours();
+
+        const secondsDegrees = (seconds / 60) * 360 + 90;
+        secondHand.style.transform = `translate(-50%, -100%) rotate(${secondsDegrees}deg)`;
+
+        const minutesDegrees = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
+        minuteHand.style.transform = `translate(-50%, -100%) rotate(${minutesDegrees}deg)`;
+
+        let hoursDegrees = (hours % 12 / 12) * 360 + (minutes / 60) * 30 + 90;
+        hourHand.style.transform = `translate(-50%, -100%) rotate(${hoursDegrees}deg)`;
+
+        const hour = String(hours).padStart(2, '0');
+        const min = String(minutes).padStart(2, '0');
+        const sec = String(seconds).padStart(2, '0');
+
+        if (hours > 12) {
+            clockEl.innerText = `오후 ${hour - 12}:${min}:${sec}`;
+        } else if (hours === 12) {
+            clockEl.innerText = `오후 ${hour}:${min}:${sec}`;
+        } else {
+            clockEl.innerText = `오전 ${hour}:${min}:${sec}`;
+        }
+    };
+
+    setInterval(timeHandler, 1000);
+
+    timeHandler();
+    
+</script>
+</body>
+</html>
+

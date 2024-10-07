@@ -30,6 +30,12 @@
         .box_active{
             transform: rotate(180deg);
         }
+
+        .box_round{
+            border-radius: 50%;
+            transition-duration: 3s;
+        }
+
         /* 
         *문제
         스크롤을 내렸을때 엘리먼트가 회전되게 만들기 */
@@ -49,7 +55,8 @@
     
     const handleScroll = () => {
         const pageY = pageYOffset;
-        boxEl.style.transfrom = `translate(-50%, -50%) rotate(${pageY}deg)`;
+        boxEl.classList.toggle('box_round')
+        boxEl.style.transform = `translate(-50%, -50%) rotate(${pageY}deg)`;
     };
 
     
