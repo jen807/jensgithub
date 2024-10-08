@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .section1 {
+            height: 100vh;
+            background-color: lightblue; /* 초기 색상 */
+        }
+        .section2 {
+            height: 100vh;
+            background-color: transparent; /* 초기 색상 */
+        }
+        .section3 {
+            height: 100vh;
+            background-color: transparent; /* 초기 색상 */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <section class="section1"></section>
+        <section class="section2"></section>
+        <section class="section3"></section>
+    </div>
+
+    <script>
+        const sec1El = document.querySelector('.section1');
+        const sec2El = document.querySelector('.section2');
+        const sec3El = document.querySelector('.section3');
+
+        const handleScroll = () => {
+            const pageY = window.pageYOffset; // 현재 스크롤 위치
+
+            // 섹션의 아래쪽 끝 위치
+            const sec1Bottom = sec1El.offsetTop + sec1El.offsetHeight;
+            const sec2Bottom = sec2El.offsetTop + sec2El.offsetHeight;
+
+            // 각 섹션의 배경색 초기화
+            sec1El.style.backgroundColor = "lightblue"; // section1 기본 색상
+            sec2El.style.backgroundColor = "transparent"; // section2 기본 색상
+            sec3El.style.backgroundColor = "transparent"; // section3 기본 색상
+
+            // 스크롤바의 아랫부분이 이전 섹션의 끝에 닿을 때 다음 섹션 색상 변경
+            if (pageY >= sec1Bottom && pageY < sec2Bottom) {
+                sec2El.style.backgroundColor = "lightgreen"; // 두 번째 섹션의 색상
+            } 
+            if (pageY >= sec2Bottom) {
+                sec3El.style.backgroundColor = "lightpink"; // 세 번째 섹션의 색상
+            }
+        };
+
+        // 스크롤이 발생할 때마다 handleScroll 함수 호출
+        window.addEventListener('scroll', handleScroll);
+
+        // 초기 상태 설정
+        handleScroll();
+    </script>
+</body>
+</html>

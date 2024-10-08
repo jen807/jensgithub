@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .section1{
+            height: 100vh;
+            /* background-color: lightblue; */
+            
+        }
+        .section2{
+            height: 100vh;
+            /* background-color: lightgreen; */
+            
+        }
+        .section3{
+            height: 100vh;
+            /* background-color: lightpink; */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <section class="section1"></section>
+        <section class="section2"></section>
+        <section class="section3"></section>
+
+    </div>
+
+    <script>
+        
+        // const sec1El = document.querySelector('.section1');
+        // const sec2El = document.querySelector('.section2');
+        // const sec3El = document.querySelector('.section3');
+        
+        // const sec1Height = sec1El.offsetHeight;
+        // const sec2Height = sec2El.offsetHeight;
+        // const sec3Height = sec3El.offsetHeight;
+
+        // const handleScroll = () => {
+        //     const pageY = pageYOffset;
+
+        //     if(pageY < sec1Height){
+        //         sec1El.style.backgroundColor = "lightblue";
+        //     }else if(pageY >= sec1Height && pageY < (sec1Height + sec2Height)){
+        //         sec2El.style.backgroundColor = "lightgreen";
+        //     }else if(pageY >= (sec1Height + sec2Height)){
+        //         sec3El.style.backgroundColor = "lightpink";
+        //     }
+        // };
+
+        // window.addEventListener('scroll', handleScroll);
+
+        // => for문 써보기
+
+
+        const sections = document.querySelectorAll('section');
+
+        const colors = [
+        {
+            backgroundColor: "lightblue"
+        },
+         
+        {
+            backgroundColor: "lightgreen"
+        },
+         
+        {
+            backgroundColor: "lightpink"
+        },
+         
+        ];
+        
+        const handleScroll = () => {
+
+            const pageY = pageYOffset;
+
+            // sections[i].offsetTop + sections[i].offsetHeight
+            
+            for(let i = 0; i < sections.length; i++){
+                const start = i * sections[i].offsetHeight;
+                // =>0번째이면 0이반환됨 1번째이면 1번째 길이 값이 반환됨
+                const end = (i + 1) * sections[i].offsetHeight;
+                // =>그다음 섹션의 시작값이자 해당 섹션이 끝나는 값
+
+                sections[i].style.transitionDuration = "0.2s"
+
+                if(pageY >= start && pageY < end){
+                    // =>시작시점부터 끝지점 까지일때 해당 섹션의 투명도는 1
+                    sections[i].style.opacity = "1";
+                    sections[i].style.backgroundColor = colors[i].backgroundColor
+                }else{
+                    // =>그게 아닌 경우는 스크롤이 다른 섹션에 가있는 경우이기때문에 투명도 0
+                    sections[i].style.opacity = "0";
+                }
+            }
+        };
+        handleScroll();
+
+        window.addEventListener('scroll', handleScroll);
+
+
+
+    </script>
+    
+</body>
+</html>

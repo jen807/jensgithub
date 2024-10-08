@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            height: 100vh;
+            /* background-color: #fff; */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <section class="section_1"></section>
+        <section class="section_2"></section>
+        <section class="section_3"></section>
+    </div>
+    
+    <script>
+
+        const sec1 = document.querySelector('.section_1');
+        const sec2 = document.querySelector('.section_2');
+        const sec3 = document.querySelector('.section_3');
+
+
+        const scrollHandler = () => {
+
+            const height = sec1.offsetHeight;
+            // console.log(height);
+            const pageY = pageYOffset;
+            // console.log(pageY);
+            const height2 = sec2.offsetHeight;
+            const height3 = sec3.offsetHeight;
+
+            if (
+                pageY < height
+            ){
+                sec1.style.backgroundColor = "black";
+            } 
+            else if ( pageY >= height && pageY < height*2 ){
+                sec2.style.backgroundColor = "red";
+            } else if (
+                pageY>=height2*2
+            ){
+                sec3.style.backgroundColor = "blue";
+            }
+        }
+
+
+        window.addEventListener('scroll', scrollHandler);
+
+
+    </script>
+    
+</body>
+</html>
