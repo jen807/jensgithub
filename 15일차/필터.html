@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <input type="text" placeholder="영화제목을 입력해주세요">
+        <h3></h3>
+    </form>
+
+    
+    <script>
+
+        const movies = [
+            {
+                id: 0,
+                title: "조커2",
+                desc: "조커 영화 입니다"
+            },
+             
+            {
+                id: 1,
+                title: "보보보",
+                desc: "난 누구? 보보보"
+            },
+             
+            {
+                id: 2,
+                title: "따따베",
+                desc: "빵빵하게~"
+            },
+             
+        ];
+
+        
+        const formEl = document.querySelector('form');
+        const inputEl = document.querySelector('input');
+        const hEl = document.querySelector('h3')
+
+        const submitHandler = (e) => {
+            e.preventDefault();
+            const inputValue = inputEl.value;
+            const result = movies.filter((a) => a.title === inputValue);
+
+            if(result.length === 0){
+                hEl.innerHTML = `찾으시는${inputValue}가 없습니다.`
+            }else{
+                hEl.innerHTML = `제목: ${result[0].title} <br> 설명: ${result[0].desc}`;
+            };
+            
+        };
+
+        formEl.addEventListener('submit', submitHandler);
+
+        
+
+        // *filter();
+        // =>배열의 내용을 가져와서 원하는 값을 필터하여 반환함
+        // =>배열이기 때문에 배열로 반환함
+
+
+        
+        // const result = movies.filter((a) => a.title === searchEl);
+        
+
+
+
+    </script>
+
+</body>
+</html>

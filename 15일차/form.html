@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form{
+            padding: 50px 100px;
+        }
+
+        input{
+            all: unset;
+            border-bottom: 1px solid #dbdbdb;
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+        }
+
+        h2{
+            padding: 0 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <form>
+        <input type="text" placeholder="검색어를 입력해주세요">
+    </form>
+
+    <h2></h2>
+
+    <script>
+
+        const formEl = document.querySelector('form');
+        const inputEl = document.querySelector('input');
+        const hEl = document.querySelector('h2');
+
+        const handleSubmit = (e) => {
+            // =>태그가 가지고 있는 기본 이벤트를 실행하지 않도록 함
+            e.preventDefault();
+            const inputValue = inputEl.value;
+            // =>인풋태그의 value(유저가 입력한 내용)값을 가져옴
+            // console.log(inputValue);
+            hEl.innerText = (`${inputValue}의 검색결과`);
+
+        };
+
+        formEl.addEventListener("submit", handleSubmit);
+
+    </script>
+    
+</body>
+</html>

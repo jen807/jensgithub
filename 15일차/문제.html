@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form{
+            max-width: 450px;
+            width: 100%;
+            margin: 100px auto;
+            border: 1px solid #dbdbdb;
+            padding: 100px 30px;
+            border-radius: 10px;
+        }
+
+        form h3{
+            font-size: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        input{
+            all: unset;
+            width: 100%;
+            height: 50px;
+            border: 1px solid #dbdbdb;
+            padding: 5px 15px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        button{
+            all: unset;
+            width: 100%;
+            height: 40px;
+            background-color: lightsalmon;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .errorMsg{
+            text-align: center;
+            color: red;
+            width: 100%;
+            height: 30px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <form>
+
+        <h3>LOGIN</h3>
+        <input type="text" placeholder="ID" class="id">
+        <input type="password" placeholder="Password" class="ps">
+        <div class="errorMsg"></div>
+        <button>로그인</button>
+
+    </form>
+
+    <script>
+
+        const userInfo = {
+            id: 0,
+            username: "test",
+            password: "123"
+        }
+        
+        const formEl = document.querySelector('form');
+        const inputId = document.querySelector('.id');
+        const inputPs = document.querySelector('.ps');
+        const btnEl = document.querySelector('button');
+        const errorEl = document.querySelector('.errorMsg')
+        
+        const submitHandler = (e) => {
+            
+            e.preventDefault();
+
+            const idValue = inputId.value;
+            const psValue = inputPs.value;
+            
+            if(userInfo.username === idValue && userInfo.password === psValue){
+                formEl.innerHTML = "<h2>로그인<br>성공</h2>"
+            }else if(userInfo.username !== idValue){
+                errorEl.innerText = "아이디가 일치하지 않습니다."
+            }else if(userInfo.password !== psValue){
+                errorEl.innerText = "비밀번호가 일치하지 않습니다."                
+            }else if("" === idValue && "" === psValue){
+                errorEl.innerText = "아이디와 비밀번호를 입력해주세요"
+            }else{
+                // alert("비밀번호와 아이디가 일치하지 않습니다.")
+                errorEl.innerText = "로그인에 실패햐였습니다."                
+            };
+        };
+
+        formEl.addEventListener('submit', submitHandler);
+
+        // const clickHandler = (e) => {
+            
+        //     e.preventDefault();
+
+        //     const idValue = inputId.value;
+        //     const psValue = inputPs.value;
+            
+        //     if(userInfo.username === idValue && userInfo.password === psValue){
+        //         alert("로그인 성공!")
+        //     }else if(userInfo.username !== idValue){
+        //         alert("아이디가 일치하지 않습니다.")
+        //     }else if(userInfo.password !== psValue){
+        //         alert("비밀번호가 일치하지 않습니다.")
+        //     }else{
+        //         alert("비밀번호와 아이디가 일치하지 않습니다.")
+        //     };
+        // };
+
+        // btnEl.addEventListener('click', clickHandler);
+
+
+    </script>
+
+</body>
+</html>
