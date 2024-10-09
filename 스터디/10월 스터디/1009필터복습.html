@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form{
+            width: 500px;
+            height: 600px;
+            /* border: 1px solid #bdbdbd; */
+            margin: 50px auto;
+            padding-top: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+
+        input{
+            width: 100%;
+            all: unset;
+            border-bottom: 1px solid #bdbdbd;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+        
+        .box{
+            width: 100%;
+            height: 400px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            transition-duration: 0.3s;
+        }
+
+        .title{
+            position: absolute;
+            bottom: 50px;
+            left: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .desc{
+            position: absolute;
+            bottom: 25px;
+            left: 20px;
+            font-size: 18px;
+            font-weight: 300;
+            color: white;
+        }
+
+    </style>
+    
+</head>
+<body>
+    
+    <form>
+        <input type="text" placeholder="Search by song title">
+        <div class="box">
+            <div class="title"></div>
+            <div class="desc"></div>
+        </div>
+    </form>
+
+    <script>
+
+        const formEl = document.querySelector('form');
+        const inputEl = document.querySelector('input');
+        const boxEl = document.querySelector('.box');
+        const titleEl = document.querySelector('.title');
+        const descEl = document.querySelector('.desc');
+
+        const songs = [
+
+        {
+            title: "Sunflower",
+            singer: "Post Malone, Swae Lee",
+            bg_img: "https://i.namu.wiki/i/IKYU0fQmJ0o7R4tKE8wijvjwUELDbOpzLAUZ1oM_5j7j58ctPTHH5kEnARr-s015FOij_tGR9PFOYkyn9dWxrAvmKs3yV76uICP4IM7GQp2zY1MdYhAPZFle6xn6p5KmEmWt9Nwcftcs017mgJSN5Q.webp"
+        },
+        {
+            title: "BornThisWay",
+            singer: "Lady Gaga",
+            bg_img: "https://i.namu.wiki/i/3-P9dWsJX77IlMntUhnHDRUwtJPss52UGMf_5tqaYwIy79U2J4vUpv8_QbKhpelmwKgKPf9P9zvgibmDHyDe1TU0dqZobgnnIQBpUsdkd7VcOy1lD3St8RBRIdBzieIPkJoDDf29jBlCYhC78b-0-g.webp"
+        },
+        {
+            title: "Gorgeous",
+            singer: "Taylor Swift",
+            bg_img: "https://i1.sndcdn.com/artworks-000264429341-4x3d2k-t500x500.jpg"
+        },         
+
+        ];
+
+        const submitHandler = (e) => {
+
+            e.preventDefault();
+
+            const inputValue = inputEl.value;
+
+            const result = songs.filter((a) => a.title == inputValue);
+            const {title, singer, bg_img} = result[0]
+
+            if(result.length === 0){
+                boxEl.innerHTML = `찾으시는"${inputValue}"가 없습니다.`
+                boxEl.style.backgroundImage = '';
+                titleEl.innerHTML = '';
+                descEl.innerHTML = '';
+            }else{
+                boxEl.style.backgroundImage = `url(${bg_img})`
+                titleEl.innerHTML = `${title}`
+                descEl.innerHTML = `${singer}`
+                console.log(result);
+            };
+
+        };
+
+        formEl.addEventListener('submit', submitHandler);
+
+        
+
+    </script>
+    
+</body>
+</html>
