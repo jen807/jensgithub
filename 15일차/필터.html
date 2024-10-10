@@ -9,9 +9,11 @@
 
     <form>
         <input type="text" placeholder="영화제목을 입력해주세요">
-        <h3></h3>
+        <!-- <h3></h3> -->
     </form>
 
+    <h2 class="title"></h2>
+    <h2 class="desc"></h2>
     
     <script>
 
@@ -39,7 +41,9 @@
         
         const formEl = document.querySelector('form');
         const inputEl = document.querySelector('input');
-        const hEl = document.querySelector('h3')
+        // const hEl = document.querySelector('h3')
+        const titleEl = document.querySelector('.title')
+        const descEl = document.querySelector('.desc')
 
         const submitHandler = (e) => {
             e.preventDefault();
@@ -47,9 +51,11 @@
             const result = movies.filter((a) => a.title === inputValue);
 
             if(result.length === 0){
-                hEl.innerHTML = `찾으시는${inputValue}가 없습니다.`
+                titleEl.innerHTML = `찾으시는 "${inputValue}" 이(가) 없습니다.`
+                descEl.innerHTML = ""
             }else{
-                hEl.innerHTML = `제목: ${result[0].title} <br> 설명: ${result[0].desc}`;
+                titleEl.innerHTML = `제목: ${result[0].title}`;
+                descEl.innerHTML = `설명: ${result[0].desc}`;
             };
             
         };

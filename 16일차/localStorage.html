@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>
+        삭제
+    </button>
+
+    <script>
+
+        // *localStorage
+        // =>브라우저에 정보를 저장하는 저장소
+        // =>간단한 내용을 저장해야되며, 노출되면 안되는 정보는 
+        // 저장해선 안됨
+
+        localStorage.setItem("name", "보보보");
+        // =>로컬 스토리지에 데이터를 저장함
+        // =>localStorage.setItem("key", "value");
+        
+        const getName = localStorage.getItem("name");
+        // =>로컬스토리지에 저장된 내용을 가져옴
+        // =>가져올 데이터는 반드시 key명을 작성하여 가져와야됨
+
+        const btnEl = document.querySelector('button');
+
+        document.write(getName);
+
+        const clickHandler = () => {
+
+
+            localStorage.removeItem("name");
+            // =>선택한 로컬 스토리지 key값을 제거함
+            window.location.reload();
+            // =>페이지를 새로고침함
+
+        };
+
+        btnEl.addEventListener('click',clickHandler);
+
+        // =>위에서 key내용을 수정했는데 기존의 것은 유지되고 밑에 수정한 내용이 추가됨
+        // 삭제에서 기존의 key값을 제거하려고 해도 제거 되지가 않음
+        // 수정된 내용은 제거됨
+
+    </script>
+    
+</body>
+</html>
