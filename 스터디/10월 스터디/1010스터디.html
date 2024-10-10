@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .box{
+            margin: 0 auto;
+            width: 300px;
+            height: 500px;
+            margin-top: 50px;
+            text-align: center;    
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);   
+            padding-top: 30px;     
+            border-radius: 10px;
+        }
+
+        .text{
+            all: unset;
+            text-align: center;
+            border-bottom: 1px solid #dbdbdb;
+            padding-bottom: 5px;
+        }
+
+        h2{
+            margin: 50px 0;
+        }
+
+        .setBtn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dark{
+            all: unset;
+            width: 80px;
+            height: 30px;
+            font-size: 13px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-right: 10px;
+            background-color: #333;
+            color: #dbdbdb;
+            border-radius: 5px;
+            cursor: pointer;
+        }    
+
+        .textSize{
+            all: unset;
+            width: 100px;
+            height: 30px;
+            font-size: 13px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-right: 10px;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        body.darkmode .dark{
+            all: unset;
+            width: 80px;
+            height: 30px;
+            font-size: 13px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-right: 10px;
+            background-color: #dbdbdb;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        body.darkmode{
+            background-color: #333;
+            color: #dbdbdb;
+        }
+
+        body.darkmode .box{
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+        }
+        
+    </style>
+
+</head>
+<body>
+
+    <div class="box">
+        <input type="text" placeholder="원하는 내용을 적어주세요!" class="text">
+        <h2>Text</h2>
+        <div class="setBtn">
+            <button class="dark">다크모드</button>
+            <input type="text" placeholder="폰트 사이즈 입력" class="textSize">
+        </div>
+    </div>
+
+    <script>
+
+        const boxEl = document.querySelector('.box');
+        const textEl = document.querySelector('.text');
+        const getDark = localStorage.getItem('DARKMODE');
+
+        
+        const hEl = document.querySelector('h2')
+        const darkBtn = document.querySelector('.dark')
+        
+        const fontsizeBtn = document.querySelector('.textSize')
+        
+        if(getDark === "ON"){
+            localStorage.setItem('DARKMODE','ON');
+                document.body.classList.add('darkmode');
+                darkBtn.innerText = '라이트모드'
+        }
+        
+        const darkHandler = () => {
+            
+            const getDark = localStorage.getItem('DARKMODE');
+            
+            if(getDark === null){
+                localStorage.setItem('DARKMODE','ON');
+                document.body.classList.add('darkmode');
+                darkBtn.innerText = '라이트모드'
+            }else if(getDark === "ON"){
+                localStorage.removeItem('DARKMODE')
+                document.body.classList.remove('darkmode');
+                darkBtn.innerText = '다크모드'
+            }
+            
+        };
+        
+        darkBtn.addEventListener('click', darkHandler);
+        
+        const inputHander = () => {
+            const inputText = textEl.value;
+            hEl.innerText = `${inputText}`
+        };
+        
+        textEl.addEventListener('input', inputHander);
+        
+        const fontHandler = () => {
+            const inputFontsize = fontsizeBtn.value;
+            hEl.style.fontSize = `${inputFontsize}px`
+        };
+
+        fontsizeBtn.addEventListener('input', fontHandler);
+
+
+    </script>
+    
+</body>
+</html>
