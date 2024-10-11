@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            transition-duration: 0.3s;
+        }
+
+        ul, li {
+            list-style: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 50px auto;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .con_wrap {
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            width: 500px;
+            height: 445px;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .con {
+            width: 100%;
+            height: 300px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .like_wrap {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background-color: gray;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .likenum {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .fa-solid.fa-heart {
+            color: red;
+        }
+
+        form{
+            width: 100%;
+            height: 30px;
+            padding: 20px 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid lightgray;
+        }
+
+        .comment{
+            all: unset;
+            font-size: 15px;
+            line-height: 30px;
+        }
+
+        .fa-message{
+            margin-right: 10px;
+        }
+
+        .comment_box{
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            border: 1px solid lightgray;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="con_wrap">
+            <div class="title">
+                <div class="profile">
+                    <img src="https://images.mypetlife.co.kr/content/uploads/2018/12/09154907/cotton-tulear-2422612_1280.jpg">
+                </div>
+                <div class="username">jennaaaa__</div>
+            </div>
+            
+            <div class="con" style="background-image: url('https://c.pxhere.com/photos/d8/9b/clouds_sky_blue_blue_sky_clouds_sky_clouds_weather_nature_air-859937.jpg!d'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+            </div>
+
+            <div class="like_wrap">
+                <i class="fa-regular fa-heart"></i>
+                <div class="likenum">153개</div>
+                <div class="text">아자아자 홧팅이닷!</div>
+            </div>
+            
+            <form>
+    
+                <i class="fa-solid fa-message"></i>
+                <input type="text" placeholder="댓글을 입력해주세요" class="comment">
+    
+            </form>
+
+        </div>
+        
+        <div class="comment_box"></div>
+
+    </div>
+
+    <script>
+
+        const likeEl = document.querySelector('.fa-regular.fa-heart');
+        const likenumEl = document.querySelector('.likenum');
+        let likes = 153;
+
+        const liketoggle = () => {
+            likeEl.classList.toggle('fa-regular');
+            likeEl.classList.toggle('fa-solid');
+
+            if(likeEl.classList.contains('fa-solid')){
+                likes++;
+            } else {
+                likes--;
+            }
+
+            likenumEl.innerText = likes + "개";
+        };
+
+
+
+
+        const formEl = document.querySelector('form');
+        const commentInput = document.querySelector('.comment');
+        const commentBox = document.querySelector('.comment_box');
+
+        let saveComment = localStorage.getItem('COMMENT_COUNT');
+
+        if(saveComment == null){
+            saveComment = 0;
+        }else{
+            saveComment = Number(saveComment);
+        };
+
+        for(let i = 0; i < saveComment; i++){
+            
+            const comment = localStorage.getItem(`COMMENT_${i}`)
+
+            if(comment !== null){
+                const newComment = document.createElement('p');
+                newComment.innerHTML = comment;
+                commentBox.append(newComment);
+            }
+        }
+
+        // =>새로고침시 유지
+
+        formEl.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const inputComment = commentInput.value;
+
+            if(inputComment !== null){
+                const newComment = document.createElement('p');
+                newComment.innerHTML = inputComment;
+                commentBox.append(newComment);
+                commentInput.value = "";
+
+                localStorage.setItem(`COMMENT_${saveComment}`, inputComment);
+                saveComment++;
+
+                localStorage.setItem('COMMENT_COUNT', saveComment);
+
+            }
+
+            // =>댓글 입력 과정
+        });
+
+        // => 각 댓글을 삭제할 수 있게 만들어보기
+
+
+
+        
+
+    </script>
+
+</body>
+</html> 
