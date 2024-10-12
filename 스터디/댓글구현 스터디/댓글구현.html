@@ -76,7 +76,7 @@
 
         .profile img {
             width: 100%;
-            height: 100%; 
+            height: 100%;
         }
 
         .likenum {
@@ -115,6 +115,22 @@
             border: 1px solid lightgray;
             margin-top: 20px;
             padding: 20px;
+        }
+
+        .delete{
+            all: unset;
+            width: 50px;
+            height: 20px;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .commentWrap{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
         }
 
     </style>
@@ -179,7 +195,7 @@
         const commentInput = document.querySelector('.comment');
         const commentBox = document.querySelector('.comment_box');
 
-        let saveComment = localStorage.getItem('COMMENT_COUNT');
+        let saveComment = localStorage.getItem('COMMENT_HISTORY');
 
         if(saveComment == null){
             saveComment = 0;
@@ -198,30 +214,59 @@
             }
         }
 
-        // =>새로고침시 유지
-
         formEl.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const inputComment = commentInput.value;
 
-            if(inputComment !== null){
+            if (inputComment !== null) {
+                const commentWrap = document.createElement('div');
+                commentWrap.classList.add('commentWrap');
+                commentWrap.dataset.index = saveComment;
+
                 const newComment = document.createElement('p');
+                const deleteComment = document.createElement('button');
+                deleteComment.classList.add('delete');
+                deleteComment.innerText = '삭제';
                 newComment.innerHTML = inputComment;
-                commentBox.append(newComment);
+
+                commentWrap.append(newComment);
+                commentWrap.append(deleteComment);
+                commentBox.append(commentWrap);
                 commentInput.value = "";
 
                 localStorage.setItem(`COMMENT_${saveComment}`, inputComment);
                 saveComment++;
+                localStorage.setItem('COMMENT_HISTORY', saveComment);
 
-                localStorage.setItem('COMMENT_COUNT', saveComment);
+                const removeHandler = (e) => {
 
+                    if (e.target.classList.contains('delete')) {
+                        const commentIndex = commentWrap.dataset.index;
+                        // console.log(commentIndex);
+                        localStorage.removeItem(`COMMENT_${commentIndex}`);
+                        commentWrap.remove();
+
+                        const comments = commentBox.querySelectorAll('.commentWrap');
+
+                        for (let i = Number(commentIndex) + 1; i < comments.length; i++) {
+                            const comment = localStorage.getItem(`COMMENT_${i}`);
+                            if (comment !== null) {
+                                localStorage.setItem(`COMMENT_${i - 1}`, comment);
+                            }
+                        }
+
+                        localStorage.removeItem(`COMMENT_${comments.length - 1}`);
+                    }
+
+                };
+
+                commentWrap.addEventListener('click', removeHandler);
             }
-
-            // =>댓글 입력 과정
         });
 
-        // => 각 댓글을 삭제할 수 있게 만들어보기
+
+
 
 
 
