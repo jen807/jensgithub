@@ -76,7 +76,7 @@
 
         .profile img {
             width: 100%;
-            height: 100%; 
+            height: 100%;
         }
 
         .likenum {
@@ -186,10 +186,11 @@
         }else{
             saveComment = Number(saveComment);
         };
+        // =>기존의 댓글 저장하기
 
         for(let i = 0; i < saveComment; i++){
             
-            const comment = localStorage.getItem(`COMMENT_${i}`)
+            const comment = localStorage.getItem(`COMMENT_${i}`);
 
             if(comment !== null){
                 const newComment = document.createElement('p');
