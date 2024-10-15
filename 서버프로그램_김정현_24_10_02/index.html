@@ -118,24 +118,24 @@
         ];
         // -유저 정보 배열, 객체 지정
 
-        const inputUsername = prompt("아이디를 입력해주세요");
-        const inputText = prompt("게시글을 입력해주세요");
+        // const inputUsername = prompt("아이디를 입력해주세요");
+        // const inputText = prompt("게시글을 입력해주세요");
 
-        if(inputUsername === ""){
-            alert("아이디를 입력해주세요! f5를 눌러 재입력하면 글이 등록됩니다!");
-        }else if(inputText === ""){
-            alert("게시글을 입력해주세요! f5를 눌러 재입력하면 글이 등록됩니다!");
-        }else{
-            const newUser = {
-                profile: "https://www.studiopeople.kr/common/img/default_profile.png",
-                username: inputUsername,
-                con: "url(https://res.cloudinary.com/kyte/image/upload/w_1200,h_630,q_auto,e_sharpen:50,c_fill,g_auto/v1618208091/content/shutterstock/ETC/green_field_0)",
-                likes: 0,
-                text: inputText
-            };
+        // if(inputUsername === ""){
+        //     alert("아이디를 입력해주세요! f5를 눌러 재입력하면 글이 등록됩니다!");
+        // }else if(inputText === ""){
+        //     alert("게시글을 입력해주세요! f5를 눌러 재입력하면 글이 등록됩니다!");
+        // }else{
+        //     const newUser = {
+        //         profile: "https://www.studiopeople.kr/common/img/default_profile.png",
+        //         username: inputUsername,
+        //         con: "url(https://res.cloudinary.com/kyte/image/upload/w_1200,h_630,q_auto,e_sharpen:50,c_fill,g_auto/v1618208091/content/shutterstock/ETC/green_field_0)",
+        //         likes: 0,
+        //         text: inputText
+        //     };
 
-            users.push(newUser);
-        };
+        //     users.push(newUser);
+        // };
 
         // 새로운 유저정보 넣기
 
