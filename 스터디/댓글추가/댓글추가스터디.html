@@ -117,6 +117,15 @@
             padding: 20px;
         }
 
+        .comment_box p {
+            border-bottom: 1px solid lightgray;
+            padding: 10px 0;
+        }
+
+        .comment_box h2{
+            font-size: 18px;
+        }
+
     </style>
 
 </head>
@@ -136,8 +145,6 @@
 
             <div class="like_wrap">
                 <i class="fa-regular fa-heart"></i>
-                <div class="likenum">153개</div>
-                <div class="text">아자아자 홧팅이닷!</div>
             </div>
             
             <form>
@@ -149,62 +156,36 @@
 
         </div>
         
-        <div class="comment_box"></div>
+        <div class="comment_box">
+            <h2>댓글창</h2>
+        </div>
+
 
     </div>
 
     <script>
 
         const likeEl = document.querySelector('.fa-regular.fa-heart');
-        const likenumEl = document.querySelector('.likenum');
-        let likes = 153;
 
         const liketoggle = () => {
             likeEl.classList.toggle('fa-regular');
             likeEl.classList.toggle('fa-solid');
-
-            if(likeEl.classList.contains('fa-solid')){
-                likes++;
-            } else {
-                likes--;
-            }
-
-            likenumEl.innerText = likes + "개";
         };
 
-
+        likeEl.addEventListener('click', liketoggle)
 
 
         const formEl = document.querySelector('form');
         const commentInput = document.querySelector('.comment');
         const commentBox = document.querySelector('.comment_box');
-
-        let saveComment = localStorage.getItem('COMMENT_COUNT');
-
-        if(saveComment == null){
-            saveComment = 0;
-        }else{
-            saveComment = Number(saveComment);
-        };
-        // =>기존의 댓글 저장하기
-
-        for(let i = 0; i < saveComment; i++){
-            
-            const comment = localStorage.getItem(`COMMENT_${i}`);
-
-            if(comment !== null){
-                const newComment = document.createElement('p');
-                newComment.innerHTML = comment;
-                commentBox.append(newComment);
-            }
-        }
-
-        // =>새로고침시 유지
+        const saveComment = localStorage.length;
 
         formEl.addEventListener('submit', (e) => {
+            
             e.preventDefault();
-
+            
             const inputComment = commentInput.value;
+            const saveComment = localStorage.length;
 
             if(inputComment !== null){
                 const newComment = document.createElement('p');
@@ -212,17 +193,13 @@
                 commentBox.append(newComment);
                 commentInput.value = "";
 
-                localStorage.setItem(`COMMENT_${saveComment}`, inputComment);
-                saveComment++;
+                console.log('이거안되면바지에똥싼다');
 
-                localStorage.setItem('COMMENT_COUNT', saveComment);
+                localStorage.setItem(`COMMENT_${saveComment}`, inputComment);
 
             }
 
-            // =>댓글 입력 과정
-        });
-
-        // => 각 댓글을 삭제할 수 있게 만들어보기
+        });     
 
 
 

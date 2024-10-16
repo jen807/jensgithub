@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    transition-duration: 0.3s;
+}
+
+ul, li {
+    list-style: none;
+    display: block;
+    cursor: pointer;
+}
+
+.wrap {
+    width: 500px;
+    margin: 50px auto;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.con_wrap {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 500px;
+    height: 445px;
+    margin-bottom: 30px;
+}
+
+.title {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.con {
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.like_wrap {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: gray;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+}
+
+.likenum {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fa-solid.fa-heart {
+    color: red;
+}
+
+form{
+    width: 100%;
+    height: 30px;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid lightgray;
+}
+
+.comment{
+    all: unset;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.fa-message{
+    margin-right: 10px;
+}
+
+.comment_box{
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.comment_box p {
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0;
+}
+
+.comment_box h2{
+    font-size: 18px;
+}
